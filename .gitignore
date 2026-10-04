@@ -3,8 +3,11 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Research data is stored locally and must not be committed by accident.
-/data/
+# Research data is shared through this repository, which must stay PRIVATE.
+# Close the app before committing so app.db is complete.
+/data/*.db-wal
+/data/*.db-shm
+/data/*.db-journal
 
 # Separate clone of another repository.
 research-valo/

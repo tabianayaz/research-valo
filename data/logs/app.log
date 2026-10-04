@@ -1,0 +1,407 @@
+2026-10-03 18:02:14,942 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 18:02:16,184 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=1
+2026-10-03 18:02:16,753 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home
+2026-10-03 18:18:41,648 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 18:18:41,681 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=1
+2026-10-03 18:18:42,260 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home
+2026-10-03 18:18:46,376 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup
+2026-10-03 18:18:48,058 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair
+2026-10-03 18:18:48,920 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup
+2026-10-03 18:18:51,280 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair
+2026-10-03 18:18:51,806 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment
+2026-10-03 18:18:56,059 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results
+2026-10-03 18:18:56,763 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation
+2026-10-03 18:18:57,203 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison
+2026-10-03 18:18:57,686 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history
+2026-10-03 18:18:58,065 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings
+2026-10-03 18:19:01,746 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home
+2026-10-03 18:19:03,432 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair
+2026-10-03 18:19:08,726 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup
+2026-10-03 18:19:10,763 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home
+2026-10-03 18:19:13,162 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup
+2026-10-03 18:19:40,426 level=INFO logger=crosshair_research.repository msg=player_created player_id=P-3368
+2026-10-03 18:19:40,449 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair
+2026-10-03 18:19:57,330 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment
+2026-10-03 18:20:00,925 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results
+2026-10-03 18:20:02,038 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation
+2026-10-03 18:20:02,371 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison
+2026-10-03 18:20:02,683 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history
+2026-10-03 18:20:02,948 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings
+2026-10-03 18:23:30,018 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home
+2026-10-03 18:28:12,339 level=INFO logger=crosshair_research.database msg=db_migrate from=1 to=2
+2026-10-03 18:28:12,383 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 18:28:12,420 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=1 format=valorant_share_code crosshair_id=1
+2026-10-03 18:28:12,441 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=2 format=valorant_share_code crosshair_id=2
+2026-10-03 18:28:12,486 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=3 format=valorant_share_code crosshair_id=3
+2026-10-03 18:28:12,506 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=4 format=valorant_share_code crosshair_id=None
+2026-10-03 18:28:12,524 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=5 format=valorant_share_code crosshair_id=None
+2026-10-03 18:28:12,550 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=6 format=valorant_share_code crosshair_id=4
+2026-10-03 18:28:12,571 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=7 format=valorant_share_code crosshair_id=5
+2026-10-03 18:28:12,591 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=8 format=valorant_share_code crosshair_id=6
+2026-10-03 18:28:12,629 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=9 format=valorant_share_code crosshair_id=7
+2026-10-03 18:28:12,646 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=10 format=valorant_share_code crosshair_id=8
+2026-10-03 18:28:12,672 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=11 format=valorant_share_code crosshair_id=9
+2026-10-03 18:28:12,739 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=12 format=valorant_share_code crosshair_id=None
+2026-10-03 18:28:12,757 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=13 format=valorant_share_code crosshair_id=10
+2026-10-03 18:28:12,784 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=14 format=valorant_share_code crosshair_id=None
+2026-10-03 18:28:12,801 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=15 format=valorant_share_code crosshair_id=11
+2026-10-03 18:28:12,838 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=16 format=valorant_share_code crosshair_id=12
+2026-10-03 18:28:12,840 level=INFO logger=crosshair_research.scraper.importer msg=valorant_import source=Researcher-provided list summary={<ImportStatus.IMPORTED: 'imported'>: 12, <ImportStatus.SOURCE_ONLY: 'source_only'>: 4, <ImportStatus.DUPLICATE: 'duplicate'>: 1, <ImportStatus.INVALID: 'invalid'>: 0}
+2026-10-03 18:28:12,840 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 18:29:17,120 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 18:29:17,150 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 18:29:17,150 level=INFO logger=crosshair_research.crosshair.presets msg=baseline_created config={"color": "#FFFFFF", "gap": 3.0, "opacity": 0.8, "outline_enabled": true, "outline_thickness": 1.0, "size": 6.0, "thickness": 2.0}
+2026-10-03 18:29:17,916 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:29:56,610 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 18:29:56,610 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 18:29:58,639 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:30:02,670 level=INFO logger=crosshair_research.repository msg=player_created player_id=P-6169
+2026-10-03 18:30:02,692 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:30:21,206 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:30:23,344 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=database
+2026-10-03 18:30:25,276 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:30:25,876 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:30:28,054 level=INFO logger=crosshair_research.repository msg=player_updated player_id=P-6169
+2026-10-03 18:30:28,086 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:30:29,254 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:30:29,620 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:30:30,037 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:30:30,429 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 18:30:30,984 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:30:31,369 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 18:30:33,058 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:30:33,705 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 18:30:34,115 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:30:34,687 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:30:35,185 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:30:36,647 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:30:37,200 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:30:42,308 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:30:42,632 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:30:42,915 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:30:43,805 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:30:44,113 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:30:48,434 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:30:49,818 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:30:50,580 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:30:52,145 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:30:52,428 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:33:42,442 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 18:33:42,442 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 18:35:36,047 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 18:35:36,074 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 18:35:36,780 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:36:30,325 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:36:33,936 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:36:35,352 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:36:58,607 level=INFO logger=crosshair_research.repository msg=player_created player_id=P-0910
+2026-10-03 18:36:58,693 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:38:30,164 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:38:33,675 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:38:53,519 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:38:57,473 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:38:58,516 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:38:59,121 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 18:38:59,959 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 18:39:00,318 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:39:00,821 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:39:01,599 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:39:04,918 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:39:15,347 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:39:16,095 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:39:17,524 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:39:18,155 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:39:19,206 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:39:26,122 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:40:12,559 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:40:12,948 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:40:13,282 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:40:14,940 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 18:40:15,678 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:40:16,129 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 18:40:19,825 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:40:22,764 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:40:24,043 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:40:24,641 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:40:26,627 level=INFO logger=crosshair_research.repository msg=player_updated player_id=P-0910
+2026-10-03 18:40:26,660 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:40:54,467 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-03 18:40:54,495 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-03 18:41:32,027 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:41:32,429 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:41:32,794 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:46:26,250 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 18:46:26,317 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 18:46:27,837 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:56:34,333 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:56:41,825 level=INFO logger=crosshair_research.repository msg=player_created player_id=P-E287
+2026-10-03 18:56:41,860 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:57:04,276 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:57:08,424 level=INFO logger=crosshair_research.repository msg=session_created session_id=1 player_id=P-E287 type=flick condition=baseline
+2026-10-03 18:57:08,424 level=INFO logger=crosshair_research.ui.flick msg=flick_started session_id=1 trials=30 arena=2560x1440
+2026-10-03 18:58:05,358 level=INFO logger=crosshair_research.ui.flick msg=flick_completed session_id=1
+2026-10-03 18:58:05,376 level=INFO logger=crosshair_research.repository msg=session_finished session_id=1 status=completed
+2026-10-03 18:58:11,298 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:58:24,376 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 18:58:25,215 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 18:58:26,224 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 18:58:26,915 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 18:58:27,236 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:58:31,798 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:58:44,288 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 18:59:33,903 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 18:59:54,312 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 18:59:56,862 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 18:59:58,664 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=database
+2026-10-03 19:00:24,025 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:00:24,026 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:03:43,419 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:03:43,420 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:04:31,105 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 19:04:31,141 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 19:04:31,934 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:04:57,898 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:05:16,716 level=INFO logger=crosshair_research.repository msg=player_created player_id=ayaz
+2026-10-03 19:05:16,799 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:05:41,405 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:05:43,800 level=INFO logger=crosshair_research.repository msg=session_created session_id=2 player_id=ayaz type=tracking condition=baseline
+2026-10-03 19:05:43,800 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=2 trials=6 arena=2560x1440
+2026-10-03 19:06:28,956 level=INFO logger=crosshair_research.ui.experiment msg=experiment_completed type=tracking session_id=2
+2026-10-03 19:06:28,978 level=INFO logger=crosshair_research.repository msg=session_finished session_id=2 status=completed
+2026-10-03 19:06:32,301 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:06:35,306 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:06:37,390 level=INFO logger=crosshair_research.repository msg=session_created session_id=3 player_id=ayaz type=switching condition=baseline
+2026-10-03 19:06:37,390 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=3 trials=10 arena=2560x1440
+2026-10-03 19:07:03,934 level=INFO logger=crosshair_research.ui.experiment msg=experiment_completed type=switching session_id=3
+2026-10-03 19:07:03,956 level=INFO logger=crosshair_research.repository msg=session_finished session_id=3 status=completed
+2026-10-03 19:07:05,183 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:07:07,603 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:07:08,913 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:07:09,142 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:07:19,428 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:07:23,374 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:07:26,045 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:07:34,135 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:07:48,277 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-03 19:07:48,308 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-03 19:07:52,737 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:08:12,709 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:08:15,436 level=INFO logger=crosshair_research.repository msg=session_created session_id=4 player_id=ayaz type=switching condition=baseline
+2026-10-03 19:08:15,436 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=4 trials=10 arena=2560x1440
+2026-10-03 19:08:17,446 level=INFO logger=crosshair_research.repository msg=session_finished session_id=4 status=aborted
+2026-10-03 19:08:18,671 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:08:20,857 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:08:54,313 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:09:12,862 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:09:20,726 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:10:02,310 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-03 19:10:02,340 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-03 19:10:04,283 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-03 19:10:04,309 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-03 19:10:07,512 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-03 19:10:07,540 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-03 19:10:36,046 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:10:37,008 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:10:37,249 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:11:08,701 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:11:09,683 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:11:10,916 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:11:24,130 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:11:24,130 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:20:07,307 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 19:20:07,351 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 19:20:08,411 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:26:04,870 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:26:07,364 level=INFO logger=crosshair_research.repository msg=player_created player_id=P-2C43
+2026-10-03 19:26:07,477 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:29:48,289 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:30:36,504 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:30:41,761 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:30:45,413 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:30:49,063 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:31:22,738 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 19:31:22,764 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 19:31:23,515 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:31:27,910 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:31:27,910 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:31:48,878 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 19:31:48,902 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=2
+2026-10-03 19:31:49,631 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:31:59,137 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:31:59,137 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:33:58,593 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:34:11,392 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:34:11,812 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:34:13,152 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:34:13,781 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:34:51,848 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:34:52,249 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:34:53,584 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:34:55,761 level=INFO logger=crosshair_research.repository msg=player_updated player_id=ayaz
+2026-10-03 19:34:55,787 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:34:58,543 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:35:08,503 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:35:09,443 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:35:10,183 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:35:10,797 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:35:13,393 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:35:13,821 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:35:14,936 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:35:18,019 level=INFO logger=crosshair_research.repository msg=session_created session_id=5 player_id=ayaz type=tracking condition=candidate
+2026-10-03 19:35:18,019 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=5 trials=6 arena=2560x1440
+2026-10-03 19:36:09,675 level=INFO logger=crosshair_research.ui.experiment msg=experiment_completed type=tracking session_id=5
+2026-10-03 19:36:09,698 level=INFO logger=crosshair_research.repository msg=session_finished session_id=5 status=completed
+2026-10-03 19:36:12,051 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=5
+2026-10-03 19:36:15,272 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=2
+2026-10-03 19:36:16,988 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:36:21,868 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:36:38,810 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:36:40,732 level=INFO logger=crosshair_research.repository msg=recommendation_created id=1 player_id=ayaz candidates=3
+2026-10-03 19:36:40,732 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=1 player=ayaz
+2026-10-03 19:36:46,228 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:36:51,681 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:36:52,418 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:39:29,058 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:39:36,080 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:39:36,681 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:39:37,229 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:39:38,121 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:39:38,446 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:39:39,054 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:39:39,476 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:39:39,865 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:39:51,669 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:44:01,052 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 19:44:01,052 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 19:51:15,199 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 19:51:15,458 level=INFO logger=crosshair_research.database msg=db_backup path=E:\project\research\data\backups\app_schema2_20261003T105115Z.db
+2026-10-03 19:51:15,460 level=INFO logger=crosshair_research.database msg=db_migrate from=2 to=3
+2026-10-03 19:51:15,592 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=3
+2026-10-03 19:51:16,282 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:52:27,119 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:52:35,538 level=INFO logger=crosshair_research.repository msg=player_updated player_id=ayaz
+2026-10-03 19:52:35,569 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:52:43,925 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:53:09,811 level=INFO logger=crosshair_research.repository msg=session_created session_id=6 player_id=ayaz type=switching condition=candidate
+2026-10-03 19:53:09,812 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=6 trials=10 arena=2560x1440
+2026-10-03 19:53:15,491 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=6 plan_index=1
+2026-10-03 19:53:23,636 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=6 plan_index=2
+2026-10-03 19:53:32,916 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=6 plan_index=3
+2026-10-03 19:53:50,552 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=6 plan_index=7
+2026-10-03 19:53:53,197 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=6 plan_index=7
+2026-10-03 19:54:04,105 level=INFO logger=crosshair_research.ui.experiment msg=experiment_completed type=switching session_id=6
+2026-10-03 19:54:04,133 level=INFO logger=crosshair_research.repository msg=session_finished session_id=6 status=completed
+2026-10-03 19:54:05,331 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=6
+2026-10-03 19:54:14,441 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:54:15,522 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:54:19,631 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 19:54:20,521 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 19:54:38,689 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 19:54:42,178 level=INFO logger=crosshair_research.repository msg=recommendation_created id=2 player_id=ayaz candidates=3
+2026-10-03 19:54:42,178 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=2 player=ayaz
+2026-10-03 19:54:44,156 level=INFO logger=crosshair_research.repository msg=recommendation_created id=3 player_id=ayaz candidates=3
+2026-10-03 19:54:44,156 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=3 player=ayaz
+2026-10-03 19:54:53,277 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 19:54:54,389 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 19:55:11,099 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 19:55:15,463 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 19:55:17,107 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 19:55:19,466 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 19:55:19,857 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 20:01:55,415 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 20:01:55,415 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 20:03:40,053 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 20:03:40,327 level=INFO logger=crosshair_research.database msg=db_backup path=E:\project\research\data\backups\app_schema3_20261003T110340Z.db
+2026-10-03 20:03:40,327 level=INFO logger=crosshair_research.database msg=db_migrate from=3 to=4
+2026-10-03 20:03:40,481 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=4
+2026-10-03 20:03:41,173 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 20:03:49,147 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 20:03:50,554 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 20:03:52,011 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 20:03:52,940 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 20:03:53,837 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 20:03:54,056 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 20:09:09,807 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 20:09:09,807 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 20:23:25,067 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 20:23:25,303 level=INFO logger=crosshair_research.database msg=db_backup path=E:\project\research\data\backups\app_schema4_20261003T112325Z.db
+2026-10-03 20:23:25,303 level=INFO logger=crosshair_research.database msg=db_migrate from=4 to=5
+2026-10-03 20:23:25,422 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=5
+2026-10-03 20:23:26,102 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 20:23:58,417 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 20:23:59,358 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 20:24:00,306 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 20:24:00,877 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-03 20:24:01,282 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 20:24:01,789 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 20:24:02,498 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 20:24:02,912 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 20:24:04,306 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 20:24:05,615 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 20:29:42,084 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 20:29:42,084 level=INFO logger=crosshair_research msg=app_exit
+2026-10-03 20:45:23,057 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-03 20:45:23,083 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=5
+2026-10-03 20:45:23,848 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 20:45:28,416 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-03 20:45:29,735 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-03 20:45:30,721 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-03 20:45:31,468 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-03 20:45:31,893 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-03 20:45:33,354 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-03 20:45:34,257 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-03 20:45:34,785 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-03 20:45:34,983 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-03 20:45:35,371 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-03 20:45:37,209 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-03 20:45:38,054 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-03 20:45:39,074 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-03 20:45:39,499 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-03 20:50:22,671 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-03 20:50:22,672 level=INFO logger=crosshair_research msg=app_exit
+2026-10-04 19:08:00,813 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-04 19:08:01,255 level=INFO logger=crosshair_research.database msg=db_backup path=E:\project\research\data\backups\app_schema5_20261004T100800Z.db
+2026-10-04 19:08:01,255 level=INFO logger=crosshair_research.database msg=db_migrate from=5 to=6
+2026-10-04 19:08:01,356 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=6
+2026-10-04 19:08:03,045 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 19:08:06,357 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 19:08:07,934 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:08:08,423 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 19:08:09,089 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:08:10,326 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 19:08:11,065 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 19:08:27,326 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 19:08:38,441 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:08:39,476 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 19:08:40,079 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 19:09:11,391 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 19:09:12,229 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-04 19:09:13,961 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-04 19:09:14,614 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 19:09:19,350 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 19:09:21,412 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 19:09:22,326 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:09:23,361 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 19:09:23,942 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 19:09:26,181 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 19:09:27,455 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-04 19:09:28,318 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-04 19:09:28,632 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 19:09:29,775 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 19:09:30,206 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:11:54,975 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=6
+2026-10-04 19:11:55,000 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=17 format=valorant_share_code crosshair_id=18
+2026-10-04 19:11:55,026 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=18 format=valorant_share_code crosshair_id=19
+2026-10-04 19:11:55,059 level=INFO logger=crosshair_research.repository msg=crosshair_source_added source_id=19 format=valorant_share_code crosshair_id=20
+2026-10-04 19:11:55,059 level=INFO logger=crosshair_research.scraper.importer msg=valorant_import source=Researcher-provided list summary={'imported': 3, 'source_only': 0, 'duplicate': 0, 'invalid': 0}
+2026-10-04 19:11:55,061 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-04 19:12:16,106 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:12:16,928 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 19:12:25,561 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:12:28,990 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 19:12:32,724 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 19:12:34,278 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 19:12:35,273 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 19:12:35,805 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 19:12:44,668 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-04 19:12:44,669 level=INFO logger=crosshair_research msg=app_exit
