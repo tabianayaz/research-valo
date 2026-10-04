@@ -423,3 +423,18 @@
 2026-10-04 21:37:34,603 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
 2026-10-04 21:42:13,803 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
 2026-10-04 21:42:13,804 level=INFO logger=crosshair_research msg=app_exit
+2026-10-04 21:45:48,501 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data
+2026-10-04 21:45:48,542 level=INFO logger=crosshair_research.database msg=db_opened path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db schema_version=6
+2026-10-04 21:45:49,913 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:46:15,255 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:46:17,005 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:46:18,459 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:46:22,870 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:46:38,172 level=INFO logger=crosshair_research.repository msg=custom_crosshair_deleted crosshair_id=16 name=sami vhotka
+2026-10-04 21:46:52,615 level=INFO logger=crosshair_research.repository msg=custom_crosshair_deleted crosshair_id=15 name=sami
+2026-10-04 21:47:01,677 level=INFO logger=crosshair_research.repository msg=custom_crosshair_deleted crosshair_id=14 name=jj
+2026-10-04 21:47:07,847 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:47:09,294 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:47:10,469 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 21:47:11,704 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:47:19,569 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
