@@ -1,0 +1,26 @@
+---
+description: Both PCs (desktop + laptop) must run with the exact same code and research data via the private GitHub repo
+alwaysApply: true
+---
+
+# Two-PC sync through GitHub
+
+The researcher runs this project on a desktop PC and a laptop and wants both to
+show exactly the same data. GitHub (`tabianayaz/research-valo`, must be
+PRIVATE) is the sync channel; the researcher uses GitHub Desktop.
+
+- Everything in `data/` is committed: `app.db`, `backups/`, `exports/`,
+  `logs/`, `raw/`, `scraper_settings.json`. Only SQLite temp files
+  (`*.db-wal`, `*.db-shm`, `*.db-journal`) are ignored.
+- Never re-add a rule that ignores `data/` or `app/data/`. Ignore patterns for
+  the data folder must be anchored (`/data/...`), because an unanchored
+  `data/` also hides the code package `app/data/`.
+- Never delete, reset or regenerate `data/app.db`; it is the shared research
+  database.
+- Any new runtime file that the app needs to look identical on both PCs must
+  live under `data/` (or be committed) — not in a machine-specific location.
+- `app.db` is binary and cannot be merged. Remind the researcher of the
+  workflow when relevant: Pull before using the app; close the app, commit
+  and push after using it; use only one PC at a time.
+- Never push research data while the repository is public.
+- Commit/push only when the researcher asks.
