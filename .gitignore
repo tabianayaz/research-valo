@@ -4,7 +4,7 @@ __pycache__/
 .pytest_cache/
 
 # Research data is stored locally and must not be committed by accident.
-data/
+/data/
 
 # Separate clone of another repository.
 research-valo/
