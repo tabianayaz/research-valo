@@ -4,27 +4,39 @@ The crosshair selector chooses between a baseline session (standard
 crosshair) and a candidate re-test (Milestone 11) with a crosshair from the
 player's latest recommendation. A candidate session is linked to the latest
 completed baseline session of the same task (``parent_session_id``, placeholder
-rule) and uses the same task parameters and seed, so the target sequence is
-the same as in the baseline.
+rule) and uses the same task parameters with the candidate seed (Phase 5), so
+the target sequence differs from the baseline.
+
+Phase 5: once a candidate is selected for a crosshair evaluation, the
+controlled card runs the two post-baseline conditions in the participant's
+stored order (CS / SC) with neutral participant-facing text. Controlled
+candidate runs outside an evaluation are only available in researcher/debug mode.
 """
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
+
+from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget
 
 from app.app_context import AppContext
 from app.crosshair.config import CrosshairConfig
 from app.data.models import (
+    NON_ANALYSED_STAGES,
     AssessmentStage,
     AssessmentStatus,
     Condition,
+    ConditionEvaluation,
     CrosshairRole,
+    EvaluationStatus,
     ExperimentType,
     SessionStatus,
     TaskAssessment,
     TaskOrderMode,
 )
 from app.data.repository import RepositoryError
+from app.experiment.evaluation import EvaluationError, session_link, start_or_resume_condition_assessment
 from app.experiment.protocol import build_protocol
 from app.experiment.task_order import parse_task_order
 from app.i18n import tr
@@ -74,7 +86,10 @@ class AimSelectionPage(BasePage):
         self._last_session_id = 0
         self._controlled_window = False
         self.active_assessment: TaskAssessment | None = None
+        self.active_evaluation: ConditionEvaluation | None = None
         self._has_recommendation = False
+        self.rest_timer = QTimer(self, singleShot=True)
+        self.rest_timer.timeout.connect(self._refresh_controlled_assessment)
         self.banner = Banner()
         self.content.addWidget(self.banner)
         self.parameter_banner = Banner()
@@ -174,8 +189,13 @@ class AimSelectionPage(BasePage):
                 self.context.repository.recover_task_assessment(active.assessment_id)
                 if active is not None else None
             )
+            self.active_evaluation = self.context.repository.get_active_condition_evaluation(player.player_id)
+            if self.active_evaluation is not None:
+                self.active_evaluation = self.context.repository.advance_condition_evaluation(
+                    self.active_evaluation.evaluation_id)
         else:
             self.active_assessment = None
+            self.active_evaluation = None
         self._refresh_controlled_assessment()
 
     def show_section(self, section: str) -> None:
@@ -257,8 +277,8 @@ class AimSelectionPage(BasePage):
                         else "your own choice (not from a recommendation; stored without a recommendation id)")
             self.crosshair_note.setText(tr(
                 "Re-test with this crosshair, {origin}. The session is recorded as condition “candidate” and "
-                "linked to the {rule} for comparison. Task parameters and seed are the same as the "
-                "baseline.", origin=origin, rule=tr(PARENT_RULE)))
+                "linked to the {rule} for comparison. Task parameters are the same as the baseline; the "
+                "target sequence uses the candidate seed.", origin=origin, rule=tr(PARENT_RULE)))
         else:
             hint = "" if self._has_recommendation else (" " + tr(
                 "Other crosshairs can be chosen above; recommended candidates appear here after "
@@ -276,7 +296,7 @@ class AimSelectionPage(BasePage):
             player.player_id, task, Condition.BASELINE, SessionStatus.COMPLETED)
         eligible = [
             session for session in sessions
-            if session.assessment_stage != AssessmentStage.PRACTICE
+            if session.assessment_stage not in NON_ANALYSED_STAGES
         ]
         return eligible[0].session_id if eligible else None
 
@@ -308,6 +328,12 @@ class AimSelectionPage(BasePage):
             self.crosshair_combo.setEnabled(True)
             return
         assessment = self.active_assessment
+        evaluation = self.active_evaluation
+        if evaluation is not None and evaluation.status == EvaluationStatus.IN_PROGRESS \
+                and (assessment is None or assessment.status != AssessmentStatus.IN_PROGRESS
+                     or assessment.evaluation_id == evaluation.evaluation_id):
+            self._refresh_evaluation(evaluation, assessment)
+            return
         if assessment is not None and assessment.status == AssessmentStatus.IN_PROGRESS:
             template = ("Next practice:\n{task}" if assessment.stage == AssessmentStage.PRACTICE
                         else "Next assessment:\n{task}")
@@ -328,14 +354,95 @@ class AimSelectionPage(BasePage):
         self.controlled_button.setEnabled(self.experiment_window is None)
         self.crosshair_combo.setEnabled(True)
 
+    # ------------------------------------------------------ crosshair evaluation
+    def _debug_mode(self) -> bool:
+        try:
+            return build_protocol(self.context.research).debug_task_selection_enabled
+        except ValidationError:
+            return False
+
+    def rest_remaining_seconds(self, evaluation: ConditionEvaluation) -> float:
+        """Configured rest (``condition_rest_seconds``) still to wait before the second condition."""
+        try:
+            rest = build_protocol(self.context.research).condition_rest_seconds
+        except ValidationError:
+            rest = 0.0
+        repo = self.context.repository
+        if rest <= 0 or evaluation.current_position != 2 \
+                or repo.get_evaluation_task_assessment(evaluation.evaluation_id, 2) is not None:
+            return 0.0
+        first = repo.get_evaluation_task_assessment(evaluation.evaluation_id, 1)
+        ended = [s.ended_at for s in repo.list_task_assessment_sessions(first.assessment_id) if s.ended_at] \
+            if first is not None else []
+        if not ended:
+            return 0.0
+        elapsed = (datetime.now(timezone.utc) - datetime.fromisoformat(max(ended))).total_seconds()
+        return max(0.0, rest - elapsed)
+
+    def _refresh_evaluation(self, evaluation: ConditionEvaluation, assessment: TaskAssessment | None) -> None:
+        """Neutral participant text: no condition names, order group or results before the next part."""
+        self.crosshair_combo.setEnabled(False)
+        part = tr("Crosshair evaluation — part {position} of 2", position=evaluation.current_position)
+        lines: list[str]
+        if assessment is not None and assessment.status == AssessmentStatus.IN_PROGRESS \
+                and assessment.evaluation_id == evaluation.evaluation_id:
+            template = ("Next familiarization:\n{task}" if assessment.stage == AssessmentStage.FAMILIARIZATION
+                        else "Next assessment:\n{task}")
+            lines = [tr("Next assessment: Crosshair evaluation"), part, "",
+                     tr(template, task=task_label(ExperimentType(assessment.current_task)))]
+            self.controlled_button.setText(tr("Resume crosshair evaluation"))
+            enabled = True
+        else:
+            lines = [tr("Next assessment: Crosshair evaluation"), part]
+            self.controlled_button.setText(tr("Start crosshair evaluation part {position}",
+                                              position=evaluation.current_position))
+            remaining = self.rest_remaining_seconds(evaluation)
+            enabled = remaining <= 0
+            if not enabled:
+                lines += ["", tr("Rest before the next part: {seconds} s", seconds=int(remaining + 0.999))]
+                self.rest_timer.start(min(int(remaining * 1000) + 50, 1000))
+        if self._debug_mode():
+            lines += ["", tr("Researcher view: evaluation #{evaluation_id}, order {group}, next condition {condition}",
+                             evaluation_id=evaluation.evaluation_id, group=evaluation.condition_order_group,
+                             condition=str(evaluation.current_condition))]
+        self.assessment_status.setText("\n".join(lines))
+        self.controlled_button.setEnabled(enabled and self.experiment_window is None)
+
+    def _start_or_resume_evaluation(self, evaluation: ConditionEvaluation) -> None:
+        if self.rest_remaining_seconds(evaluation) > 0:
+            self._refresh_controlled_assessment()
+            return
+        try:
+            assessment = start_or_resume_condition_assessment(
+                self.context.repository, build_protocol(self.context.research), evaluation)
+        except (EvaluationError, RepositoryError, ValidationError) as exc:
+            self.banner.show_message(str(exc), Banner.Kind.WARNING)
+            return
+        self.active_assessment = assessment
+        self._launch_assessment_task(assessment)
+
     def start_or_resume_assessment(self) -> None:
         player = self.context.current_player
         if player is None or self.experiment_window is not None:
             return
+        evaluation = self.active_evaluation
+        if evaluation is not None and evaluation.status == EvaluationStatus.IN_PROGRESS \
+                and (self.active_assessment is None
+                     or self.active_assessment.status != AssessmentStatus.IN_PROGRESS
+                     or self.active_assessment.evaluation_id == evaluation.evaluation_id):
+            self._start_or_resume_evaluation(evaluation)
+            return
         protocol = build_protocol(self.context.research)
         selected: RunSetup = self.crosshair_combo.currentData() or RunSetup.baseline(self.context)
-        if self.active_assessment is not None \
-                and self.active_assessment.status == AssessmentStatus.IN_PROGRESS:
+        resuming = self.active_assessment is not None \
+            and self.active_assessment.status == AssessmentStatus.IN_PROGRESS
+        if not resuming and selected.condition == Condition.CANDIDATE and not protocol.debug_task_selection_enabled:
+            self.banner.show_message(
+                "Controlled post-baseline assessments run as a crosshair evaluation: select one candidate "
+                "on the Recommendation page (“Select for crosshair evaluation”).", Banner.Kind.WARNING,
+            )
+            return
+        if resuming:
             active_crosshair = self.context.repository.get_crosshair(
                 self.active_assessment.crosshair_id
             )
@@ -373,6 +480,23 @@ class AimSelectionPage(BasePage):
         if crosshair is None:
             self.banner.show_message("The assessment crosshair no longer exists.", Banner.Kind.ERROR)
             return
+        order = assessment.order_for_stage()
+        common = dict(
+            crosshair=crosshair,
+            condition=assessment.condition,
+            assessment_id=assessment.assessment_id,
+            assessment_stage=assessment.stage,
+            task_order_mode=TaskOrderMode.COUNTERBALANCED,
+            task_order_group=assessment.task_order_group,
+            task_order=tuple(order),
+            task_position=assessment.current_position,
+        )
+        if assessment.evaluation_id is not None:
+            evaluation = self.context.repository.get_condition_evaluation(assessment.evaluation_id)
+            run = RunSetup(**common, **session_link(evaluation, assessment, task),
+                           show_condition_details=self._debug_mode())
+            self._open_task_window(task, run, controlled=True)
+            return
         parent_id = None
         if assessment.condition == Condition.CANDIDATE \
                 and assessment.stage == AssessmentStage.EXPERIMENTAL:
@@ -383,19 +507,7 @@ class AimSelectionPage(BasePage):
                     Banner.Kind.WARNING, task=task_label(task),
                 )
                 return
-        order = assessment.order_for_stage()
-        run = RunSetup(
-            crosshair=crosshair,
-            condition=assessment.condition,
-            parent_session_id=parent_id,
-            recommendation_id=assessment.recommendation_id,
-            assessment_id=assessment.assessment_id,
-            assessment_stage=assessment.stage,
-            task_order_mode=TaskOrderMode.COUNTERBALANCED,
-            task_order_group=assessment.task_order_group,
-            task_order=tuple(order),
-            task_position=assessment.current_position,
-        )
+        run = RunSetup(**common, parent_session_id=parent_id, recommendation_id=assessment.recommendation_id)
         self._open_task_window(task, run, controlled=True)
 
     # ---------------------------------------------------------------- session
@@ -456,6 +568,9 @@ class AimSelectionPage(BasePage):
                 self.active_assessment = self.context.repository.complete_task_assessment_session(
                     session.assessment_id, session_id,
                 )
+                if self.active_assessment.evaluation_id is not None:
+                    self.active_evaluation = self.context.repository.advance_condition_evaluation(
+                        self.active_assessment.evaluation_id)
         if session_id:
             trials = len(self.context.repository.list_trials(session_id))
             self.banner.show_message(
@@ -470,6 +585,27 @@ class AimSelectionPage(BasePage):
         self._controlled_window = False
         session_id, self._last_session_id = self._last_session_id, 0
         if controlled:
+            evaluation = self.active_evaluation
+            if self.active_assessment is not None and self.active_assessment.evaluation_id is not None \
+                    and evaluation is not None:
+                if evaluation.status == EvaluationStatus.COMPLETED:
+                    self.banner.show_message("Crosshair evaluation complete. All assigned tasks were recorded.",
+                                             Banner.Kind.SUCCESS)
+                    self.active_evaluation = None
+                    self._refresh_controlled_assessment()
+                    self.navigate_requested.emit(f"{PageId.COMPARISON}:evaluation:{evaluation.evaluation_id}")
+                    return
+                if self.active_assessment.status == AssessmentStatus.COMPLETED:
+                    self.banner.show_message("Part {position} of 2 complete. Next assessment: Crosshair evaluation",
+                                             Banner.Kind.INFO, position=evaluation.current_position - 1)
+                else:
+                    template = ("Next familiarization: {task}"
+                                if self.active_assessment.stage == AssessmentStage.FAMILIARIZATION
+                                else "Next assessment: {task}")
+                    task = task_label(ExperimentType(self.active_assessment.current_task))
+                    self.banner.show_message(template, Banner.Kind.INFO, task=task)
+                self._refresh_controlled_assessment()
+                return
             if self.active_assessment is not None \
                     and self.active_assessment.status == AssessmentStatus.COMPLETED:
                 self.banner.show_message(

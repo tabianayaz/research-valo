@@ -31,6 +31,7 @@ from app.app_context import AppContext
 from app.crosshair.config import CrosshairConfig
 from app.crosshair.renderer import paint_shape
 from app.data.models import (
+    NON_ANALYSED_STAGES,
     AssessmentStage,
     Condition,
     CrosshairRecord,
@@ -48,6 +49,7 @@ from app.data.models import (
     TaskOrderMode,
 )
 from app.experiment.common import EventType
+from app.experiment.conditions import seed_group_for
 from app.experiment.protocol import ExperimentProtocol, build_protocol
 from app.experiment.task_order import parse_task_order
 from app.experiment.timing import ONSET_FALLBACK_MS
@@ -82,6 +84,8 @@ class RunSetup:
     Baseline sessions use the standard crosshair. Candidate sessions (re-test)
     use a recommended candidate and link to the baseline session they are
     compared with (``parent_session_id``) and the recommendation run.
+    Post-baseline condition sessions of an evaluation cycle (STANDARD /
+    CANDIDATE) also carry the cycle's linking fields (``evaluation_id`` ...).
     """
 
     crosshair: CrosshairRecord
@@ -94,6 +98,23 @@ class RunSetup:
     task_order_group: str | None = None
     task_order: tuple[str, ...] | None = None
     task_position: int | None = None
+    evaluation_id: int | None = None
+    condition_order_group: str | None = None
+    condition_order: tuple[str, ...] | None = None
+    condition_position: int | None = None
+    initial_baseline_session_id: int | None = None
+    selected_candidate_id: int | None = None
+    show_condition_details: bool = False  # researcher/debug mode only
+
+    @property
+    def pre_block_stage(self) -> AssessmentStage:
+        """Non-analysed block before the experimental trials: familiarization in evaluation cycles."""
+        return AssessmentStage.FAMILIARIZATION if self.evaluation_id is not None else AssessmentStage.PRACTICE
+
+    @property
+    def participant_neutral(self) -> bool:
+        """Evaluation runs never show the condition, its order or performance to the participant."""
+        return self.evaluation_id is not None and not self.show_condition_details
 
     @classmethod
     def baseline(cls, context: AppContext) -> RunSetup:
@@ -237,20 +258,23 @@ class ExperimentWindow(QWidget):
             QMessageBox.warning(self, tr(self.title), tr("No participant selected."))
             return False
         arena_w, arena_h = self._arena_px()
+        pre_stage = self.run.pre_block_stage
         try:
             self.protocol = build_protocol(self.context.research)
             task = str(self.experiment_type)
-            self.experimental_plan = self.build_plan(arena_w, arena_h, self.config, self.config.random_seed)
-            practice_count = self.protocol.practice_count(task)
+            experimental_seed = self.protocol.experimental_seed(
+                str(self.run.condition), task, self.config.random_seed)
+            self.experimental_plan = self.build_plan(arena_w, arena_h, self.config, experimental_seed)
+            pre_count = self.protocol.pre_block_count(str(pre_stage), task)
+            pre_seed = self.protocol.pre_block_seed(str(pre_stage), task)
             self.practice_plan = self.build_plan(
-                arena_w, arena_h, replace(self.config, trial_count=practice_count),
-                self.protocol.practice_random_seed[task],
-            ) if practice_count else []
+                arena_w, arena_h, replace(self.config, trial_count=pre_count), pre_seed,
+            ) if pre_count else []
         except Exception as exc:  # noqa: BLE001 - shown to the operator
             QMessageBox.critical(self, tr(self.title), tr_message(str(exc)))
             return False
         stage = AssessmentStage(self.run.assessment_stage)
-        if stage == AssessmentStage.PRACTICE:
+        if stage in NON_ANALYSED_STAGES:
             if not self.practice_plan:
                 QMessageBox.critical(self, tr(self.title), tr("No practice trials are configured for this task."))
                 return False
@@ -302,14 +326,16 @@ class ExperimentWindow(QWidget):
             parent_session_id=self.run.parent_session_id,
             recommendation_id=self.run.recommendation_id,
             environment_id=environment.environment_id,
-            random_seed=(self.protocol.practice_random_seed[task]
-                         if stage == AssessmentStage.PRACTICE else self.config.random_seed),
+            random_seed=pre_seed if stage in NON_ANALYSED_STAGES else experimental_seed,
             task_config={
                 str(self.experiment_type): self.config.to_dict(),
                 "arena_px": [arena_w, arena_h],
                 "timing_definition": self.timing_definition(),
                 "plan": self.plan_for_storage(self.experimental_plan),
                 "practice_plan": self.plan_for_storage(self.practice_plan),
+                "experimental_seed": experimental_seed,
+                "pre_block_stage": str(pre_stage),
+                "pre_block_seed": pre_seed,
                 "assessment_stage": str(stage),
                 "research_parameters": self.context.research.as_dict(),
             },
@@ -325,6 +351,14 @@ class ExperimentWindow(QWidget):
             task_order_group=task_order_group,
             task_order=task_order,
             task_position=task_position,
+            evaluation_id=self.run.evaluation_id,
+            condition_order_group=self.run.condition_order_group,
+            condition_order=self.run.condition_order,
+            condition_position=self.run.condition_position,
+            initial_baseline_session_id=self.run.initial_baseline_session_id,
+            selected_candidate_id=self.run.selected_candidate_id,
+            seed_group=seed_group_for(self.run.condition, str(stage) if stage in NON_ANALYSED_STAGES
+                                      else None),
         ))
         log.info("experiment_started type=%s session_id=%s protocol=%s practice=%s trials=%s arena=%sx%s",
                  self.experiment_type, self.session.session_id, self.protocol.version, len(self.practice_plan),
@@ -609,7 +643,12 @@ class ExperimentWindow(QWidget):
                              self.config.start_marker_color)
             painter.setPen(QColor(FAINT_TEXT_COLOR))
             painter.setFont(self._text_font(10))
-            block = tr("Practice" if self.phase == TrialPhase.PRACTICE else "Assessment")
+            if self.phase != TrialPhase.PRACTICE:
+                block = tr("Assessment")
+            elif self.run.pre_block_stage == AssessmentStage.FAMILIARIZATION:
+                block = tr("Familiarization")
+            else:
+                block = tr("Practice")
             painter.drawText(16, 26, f"{block}  {self.trial_index + 1} / {len(self.plan)}")
             notice = self._instruction()
             if notice:
@@ -659,12 +698,16 @@ class ExperimentWindow(QWidget):
         painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, text)
 
     def _intro_text(self) -> list[str]:
+        pre_stage = self.run.pre_block_stage
         try:
-            practice = build_protocol(self.context.research).practice_count(str(self.experiment_type))
+            practice = build_protocol(self.context.research).pre_block_count(
+                str(pre_stage), str(self.experiment_type))
         except ValidationError:
             practice = 0
         stage = AssessmentStage(self.run.assessment_stage)
-        if stage == AssessmentStage.PRACTICE:
+        if stage == AssessmentStage.FAMILIARIZATION:
+            block = [tr("Familiarization: {count} trials (not analysed)", count=practice)]
+        elif stage == AssessmentStage.PRACTICE:
             block = [tr("Practice: {count} trials (not analysed)", count=practice)]
         elif stage == AssessmentStage.EXPERIMENTAL:
             block = [tr("Experimental Assessment: {count} trials", count=self.config.trial_count)]
@@ -674,7 +717,13 @@ class ExperimentWindow(QWidget):
         else:
             block = [tr("Experimental Assessment: {count} trials", count=self.config.trial_count)]
         lines = [tr(self.title), "", *(tr(line) for line in self.intro_lines()), "", *block, tr("Esc aborts")]
-        if self.run.condition == Condition.CANDIDATE:
+        if self.run.evaluation_id is not None:
+            lines += ["", tr("Crosshair evaluation — part {position} of 2", position=self.run.condition_position)]
+            if self.run.show_condition_details:
+                lines += [tr("Researcher view: condition {condition}, order {group}, crosshair {name}",
+                             condition=str(self.run.condition), group=self.run.condition_order_group,
+                             name=self.run.crosshair.name)]
+        elif self.run.condition == Condition.CANDIDATE:
             lines += ["", tr("Crosshair: candidate ({name})", name=self.run.crosshair.name)]
         lines += ["", tr("Press Space to begin")]
         if not self.config.confirmed:
@@ -682,13 +731,12 @@ class ExperimentWindow(QWidget):
         return lines
 
     def _done_text(self) -> str:
-        if self.run.assessment_stage == AssessmentStage.PRACTICE \
+        if self.run.assessment_stage in NON_ANALYSED_STAGES \
                 and self.trial_index >= len(self.plan):
-            return "\n".join([
-                tr("Practice complete: {count} trials saved for audit (not analysed)", count=len(self.plan)),
-                "",
-                tr("Press Space to continue"),
-            ])
+            template = ("Familiarization complete: {count} trials saved for audit (not analysed)"
+                        if self.run.assessment_stage == AssessmentStage.FAMILIARIZATION
+                        else "Practice complete: {count} trials saved for audit (not analysed)")
+            return "\n".join([tr(template, count=len(self.plan)), "", tr("Press Space to continue")])
         if not self.results:
             return tr("Session ended. No experimental trials were recorded.\n\nPress Space to return")
         complete = self.phase == TrialPhase.EXPERIMENTAL and self.trial_index >= len(self.plan)
@@ -699,7 +747,7 @@ class ExperimentWindow(QWidget):
                     tr("Session aborted: {count} trials saved{invalid}", count=len(self.results), invalid=invalid))
         return "\n".join([
             headline,
-            *self.summary_lines(),
+            *([] if self.run.participant_neutral else self.summary_lines()),
             "",
             tr("Press Space to return"),
         ])

@@ -1,9 +1,11 @@
 """Player profile (Milestone 7): the player's own baseline metrics per task.
 
-Source rule (placeholder, see README "Research decisions"): for each task the
-latest *completed* baseline session of the player is used. Aborted sessions
-and candidate sessions are never used. Metrics are recomputed from raw data
-and never include practice or invalid (pre-target movement) trials.
+Source rule (Phase 5, see docs/experiment_protocol.md): for each task the
+*initial* (earliest) completed BASELINE session of the player is used.
+STANDARD and CANDIDATE sessions, practice and familiarization blocks and
+aborted sessions are never used, so later sessions cannot change the profile
+(and therefore the recommendation) of a cycle. Metrics are recomputed from
+raw data and never include practice or invalid (pre-target movement) trials.
 The profile is descriptive; it does not compare the player with other people.
 """
 
@@ -13,10 +15,10 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from app.analysis.metrics import ANALYSIS_VERSION, TASK_METRICS, analyze_session
-from app.data.models import AssessmentStage, Condition, ExperimentType, SessionStatus
+from app.data.models import NON_ANALYSED_STAGES, Condition, ExperimentType, Session, SessionStatus
 from app.data.repository import Repository
 
-PROFILE_RULE = "latest completed baseline session per task"
+PROFILE_RULE = "initial completed baseline session per task"
 
 
 @dataclass
@@ -61,23 +63,28 @@ class PlayerProfile:
         }
 
 
+def initial_baseline_sessions(repo: Repository, player_id: str) -> dict[ExperimentType, Session]:
+    """Earliest completed, analysed (non-practice / non-familiarization) BASELINE session per task."""
+    found: dict[ExperimentType, Session] = {}
+    for task in ExperimentType:
+        sessions = [
+            session for session in repo.list_sessions(player_id, task, Condition.BASELINE, SessionStatus.COMPLETED)
+            if session.assessment_stage not in NON_ANALYSED_STAGES and session.evaluation_id is None
+        ]
+        if sessions:
+            found[task] = sessions[-1]  # list_sessions is newest first
+    return found
+
+
 def build_profile(repo: Repository, player_id: str) -> PlayerProfile:
     profile = PlayerProfile(player_id)
-    for task in ExperimentType:
-        sessions = repo.list_sessions(player_id, task, Condition.BASELINE, SessionStatus.COMPLETED)
-        sessions = [
-            session for session in sessions
-            if session.assessment_stage != AssessmentStage.PRACTICE
-        ]
-        if not sessions:
-            continue
-        latest = sessions[0]
-        analysis = analyze_session(repo, latest.session_id)
+    for task, initial in initial_baseline_sessions(repo, player_id).items():
+        analysis = analyze_session(repo, initial.session_id)
         profile.tasks[task] = TaskProfile(
             task=task,
-            session_id=latest.session_id,
-            started_at=latest.started_at,
+            session_id=initial.session_id,
+            started_at=initial.started_at,
             metrics={name: analysis.metrics.get(name) for name in TASK_METRICS[task]},
-            protocol_version=latest.protocol_version,
+            protocol_version=initial.protocol_version,
         )
     return profile

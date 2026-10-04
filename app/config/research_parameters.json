@@ -38,7 +38,22 @@
     "_practice_order_comment": "By default all practice tasks follow the participant-assigned order, then all experimental tasks repeat that order. A fixed practice order is available only as a configurable alternative; neither method is claimed to be optimal.",
     "debug_task_selection_enabled": false,
     "debug_fixed_task_order": ["flick", "tracking", "switching"],
-    "_debug_comment": "Non-experimental developer mode. This order never replaces a participant's stored counterbalanced assignment."
+    "_debug_comment": "Non-experimental developer mode. This order never replaces a participant's stored counterbalanced assignment.",
+    "_condition_comment": "Post-baseline condition design (app/experiment/conditions.py): Initial BASELINE -> recommendation from the baseline only -> Candidate and Standard in a counterbalanced order (CS / SC). PLACEHOLDER: the allocation method, seeds, familiarization trial counts and rest interval are PILOT_PLACEHOLDER values chosen only so the software can be tested. They are not research decisions.",
+    "condition_order_method": "counterbalanced",
+    "condition_assignment_method": "participant_sequence_alternating_crossed_6x2",
+    "available_condition_orders": ["CS", "SC"],
+    "condition_random_seed": {
+      "standard": {"flick": 40261003, "tracking": 40261004, "switching": 40261005},
+      "candidate": {"flick": 50261003, "tracking": 50261004, "switching": 50261005}
+    },
+    "_condition_seed_comment": "Baseline keeps each task's random_seed. Standard and candidate use different seeds with the same task parameters, so the target sequence is not replayed. The seeds are not claimed to be statistically equivalent.",
+    "condition_familiarization_enabled": true,
+    "condition_familiarization_trial_count": {"flick": 3, "tracking": 1, "switching": 1},
+    "condition_familiarization_random_seed": {"flick": 60261003, "tracking": 60261004, "switching": 60261005},
+    "_condition_familiarization_comment": "PLACEHOLDER: short non-analysed block with the new crosshair before each post-baseline condition (replaces the practice block in condition assessments). The number of trials is a research decision.",
+    "condition_rest_seconds": 0,
+    "_condition_rest_comment": "PLACEHOLDER: optional rest between the two post-baseline conditions (0 = no enforced rest). Not a scientifically justified duration."
   },
   "flick_task": {
     "_comment": "PLACEHOLDER values chosen only so the task can be tested. They are not research decisions. All sizes/distances are physical (device) pixels.",

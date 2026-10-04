@@ -58,12 +58,13 @@ scientific result.
 - **CONFIRMED**: every session stores an immutable snapshot of the crosshair it
   was run with (`sessions.crosshair_snapshot_json`: all crosshair fields plus
   `px_per_unit`).
-- **CONFIRMED**: the player profile uses, per task, the latest completed baseline
-  session. Candidate sessions, aborted sessions, practice trials and invalid
-  trials are never used.
+- **CONFIRMED**: the player profile uses, per task, the initial (earliest)
+  completed baseline session (Phase 5; previously the latest one). Standard and
+  candidate sessions, aborted sessions, practice and familiarization trials and
+  invalid trials are never used, so later sessions cannot change the profile.
 - **PLACEHOLDER**: the standard crosshair values (white, size 6, thickness 2,
   gap 3, outline 1, opacity 0.8; `baseline_confirmed: false`) and the profile
-  source rule ("latest completed baseline").
+  source rule ("initial completed baseline").
 - **RESEARCH DECISION REQUIRED**: the standard crosshair, the profile source rule,
   and the number of baseline sessions.
 
@@ -80,9 +81,8 @@ scientific result.
 - **PLACEHOLDER**: all task parameters (`flick_task`, `tracking_task`,
   `switching_task`): trial counts, target size, target distances, tracking
   duration and path (which determines target speed), timeouts and foreperiod ranges.
-- **RESEARCH DECISION REQUIRED**: the condition order (baseline / standard /
-  candidate) and its counterbalancing, whether
-  conditions use different but matched seeds, the number of sessions, and washout.
+- **RESEARCH DECISION REQUIRED**: the number of sessions and washout. The
+  condition order and seeds are described in 「クロスヘア条件の比較方法」 below.
 
 ## 課題提示順序 (Task presentation order)
 
@@ -128,6 +128,140 @@ The three tasks are Flick Aim (F), Tracking (T) and Target Switching (S).
 - **RESEARCH DECISION REQUIRED**: confirm the final allocation strategy,
   whether practice should match the experimental order, and how incomplete
   assessment runs should be handled in the study protocol.
+
+## クロスヘア条件の比較方法 (Crosshair condition comparison)
+
+Implementation: `app/experiment/conditions.py`, `app/experiment/evaluation.py`,
+`app/analysis/comparison.py` (`compare_conditions`). Database schema 6.
+
+### 1. Conditions
+
+- **CONFIRMED**: three conditions are stored in `sessions.condition`:
+  `baseline` (initial measurement with the standard crosshair), `standard`
+  (a repeated control with the same standard crosshair after the
+  recommendation; not a new baseline) and `candidate` (the selected
+  recommended crosshair).
+- **CONFIRMED**: the profile and the recommendation use only the initial
+  completed BASELINE sessions (one per task).
+
+### 2. Flow
+
+- **CONFIRMED**: initial baseline (three tasks) → analysis → recommendation
+  (generated once per cycle) → the participant selects one candidate
+  (“Select for crosshair evaluation”, confirmation dialog) → the stored order
+  CS or SC → first condition → second condition → descriptive three-condition
+  comparison. Each condition is one controlled three-task assessment in the
+  participant's stored task order.
+- **CONFIRMED**: the participant cannot change the condition order. In
+  participant mode, controlled candidate runs outside an evaluation are refused;
+  the individual-task debug launch remains available only in
+  researcher/debug mode (`debug_task_selection_enabled`).
+
+### 3. Deterministic assignment
+
+- **CONFIRMED**: `condition_assignment_method =
+  participant_sequence_alternating_crossed_6x2`:
+  `index = ((sequence − 1) + (sequence − 1) // 6) % 2`, CS if 0, SC if 1.
+  It uses the same immutable participant sequence as the task-order rotation
+  and no random number generator.
+- **CONFIRMED**: `players.condition_order_group`, `condition_order_json` and
+  `condition_assignment_method` are written once and protected by a database
+  trigger; each evaluation stores a frozen copy. Resuming never re-assigns.
+- **PLACEHOLDER**: the allocation method itself (chosen so that every block of
+  12 participants contains each task order once with CS and once with SC).
+- **RESEARCH DECISION REQUIRED**: the final allocation strategy and handling of
+  participants who do not complete both conditions.
+
+### 4. Task order and condition order
+
+- **CONFIRMED**: task order and condition order are stored separately. Every
+  post-baseline session stores participant, task, `task_position`,
+  `condition`, `condition_position`, `condition_order_group` and
+  `condition_order_json`; the task order of each condition is the participant's
+  stored task order.
+
+### 5. Recommendation from baseline data only
+
+- **CONFIRMED**: `recommendations.source_session_ids` (the
+  `recommendation_source_session_id` of each task) must equal the initial
+  baseline sessions; otherwise the evaluation cannot start. Standard,
+  candidate, practice, familiarization and aborted sessions are excluded.
+- **CONFIRMED**: once an evaluation exists, “Generate candidates” is refused in
+  participant mode; later results cannot alter the cycle's recommendation.
+
+### 6. Candidate selection
+
+- **CONFIRMED**: the participant selects one of several candidates. The
+  evaluation stores `recommendation_id` (recommendation run),
+  `selected_candidate_id` and the initial baseline sessions; a trigger makes
+  them immutable and the application never changes the choice. Each candidate
+  session stores `selected_candidate_id` and its own crosshair snapshot.
+
+### 7. STANDARD crosshair
+
+- **CONFIRMED**: STANDARD uses the crosshair of the initial baseline sessions
+  (`standard_crosshair_id` and `standard_crosshair_snapshot_json` taken from
+  their stored snapshot), not the current configuration file. If the configured
+  standard crosshair differs from the baseline snapshot, it is not treated as
+  equivalent: the evaluation keeps the baseline crosshair, and the comparison
+  adds a caveat if a Standard session's snapshot differs.
+
+### 8. Seeds
+
+- **CONFIRMED**: baseline keeps each task's `random_seed`; standard and
+  candidate use `protocol.condition_random_seed` (different seeds, same task
+  parameters and distributions). Every session stores `random_seed`,
+  `seed_group` and `condition`. The seeds are not claimed to be statistically
+  equivalent in difficulty.
+- **CONFIRMED (change)**: the earlier candidate re-test replayed the baseline
+  seed; from protocol-3 on, candidate sessions use the candidate seed.
+- **PLACEHOLDER**: the seed values.
+
+### 9. Familiarization
+
+- **CONFIRMED**: `condition_familiarization_enabled` and
+  `condition_familiarization_trial_count` define a short block with the
+  condition's crosshair before the experimental block of each post-baseline
+  task (`assessment_stage = familiarization`, `seed_group = familiarization`).
+  Its raw rows are kept (`trial_phase = practice`) and excluded from metrics,
+  profile, recommendation and comparison.
+- **PLACEHOLDER**: enabled; Flick 3, Tracking 1, Switching 1 trials.
+- **RESEARCH DECISION REQUIRED**: whether familiarization is used and its length.
+
+### 10. Transition and rest
+
+- **CONFIRMED**: between conditions the participant sees only neutral text
+  (“Next assessment: Crosshair evaluation”, “part n of 2”). No performance
+  results are shown before or between conditions (the session-end screen hides
+  the hit/miss summary in evaluation runs).
+- **CONFIRMED**: CS/SC, the allocation method, the hypothesis, the score formula
+  and the rationale are not shown on the assessment screens; researcher/debug
+  mode shows the evaluation metadata.
+- **PLACEHOLDER**: `condition_rest_seconds = 0` (no enforced rest). The start
+  button for the second condition stays disabled until the configured rest has
+  elapsed. No duration is proposed by the software.
+- **RESEARCH DECISION REQUIRED**: the rest duration, and whether the
+  Recommendation page (scores, rules, explanations) is shown to participants or
+  operated by the researcher.
+
+### Comparison, analysis and historical data
+
+- **CONFIRMED**: the comparison reports Baseline→Standard, Baseline→Candidate
+  and Standard→Candidate per metric in descriptive wording (e.g. “Candidate
+  condition was 4.2% lower than Standard condition.”) with caveats (single
+  sessions, order effect, different seeds, repetition). No inferential
+  statistics are computed.
+- **CONFIRMED**: exports contain participant_id, task, task_position,
+  condition, condition_position, condition_order_group, session_id, trial_id,
+  protocol_version, seed, seed_group and crosshair_id.
+- **CONFIRMED**: migration 5 → 6 creates a backup
+  (`backups/<db>_schema5_<timestamp>.db`), checks integrity, rebuilds only
+  `sessions` and `task_assessments` (to allow the new condition and stage values),
+  keeps raw trial tables untouched, compares row counts and foreign keys and
+  rolls back on any difference.
+- **CONFIRMED**: historical sessions keep the new fields NULL (unknown); their
+  condition order, position, seed group and links are not inferred. Existing
+  participants receive a condition order only when they are next saved or used.
 
 ## 5. Stabilization procedure
 
