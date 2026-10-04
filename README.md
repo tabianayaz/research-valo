@@ -267,9 +267,9 @@ distance 200/350 px, 3000 ms timeout per target.
    times from hits only). Metrics are stored in `aim_results` as derived data.
    *Export CSV / JSON* writes trials, samples, events and session metadata to
    `data/exports/`.
-2. **Profile** (`app/analysis/profile.py`): per task, the participant's latest
-   *completed baseline* session. Candidate and aborted sessions are never used.
-   Profiles are per participant ID.
+2. **Profile** (`app/analysis/profile.py`): per task, the participant's initial
+   *completed baseline* session. Standard, candidate, practice, familiarization
+   and aborted sessions are never used. Profiles are per participant ID.
 3. **Recommendation** (`app/recommendation/engine.py`): a transparent weighted
    score over four components (visibility = WCAG contrast against the
    background, centre precision, low occlusion, source fidelity). Rules in
@@ -280,14 +280,20 @@ distance 200/350 px, 3000 ms timeout per target.
 4. **Re-test**: on Aim Assessment choose a candidate from the latest
    recommendation. The session is stored with condition `candidate`, the
    recommendation id, and `parent_session_id` = the latest completed baseline
-   session of the same task. Task parameters and seed are unchanged, so the
-   target sequence is identical.
+   session of the same task. Task parameters are unchanged; since protocol-3
+   the candidate condition uses its own seed, so the target sequence differs.
+   In participant mode the controlled post-baseline run is the **crosshair
+   evaluation** (Phase 5): the participant selects one candidate, then runs
+   Candidate and Standard (baseline crosshair repeated) in the stored order
+   CS or SC, each with a familiarization block. See 「クロスヘア条件の比較方法」
+   in `docs/experiment_protocol.md`.
 5. **Comparison** (`app/analysis/comparison.py`): candidate minus baseline for
    every metric, % difference for times and distances only, percentage points
    for ratios, with caveats (single sessions, order/practice effect,
    placeholders, moving at onset). No statistical test. *Export CSV* writes the
-   table. History lists all sessions (double-click opens them) and all
-   recommendation runs.
+   table. For a crosshair evaluation the page also shows Baseline→Standard,
+   Baseline→Candidate and Standard→Candidate. History lists all sessions
+   (double-click opens them) and all recommendation runs.
 
 ## Timing conventions
 
@@ -379,18 +385,20 @@ by the software. They need confirmation (e.g. with the supervisor):
     a maximum number of repeats per planned trial (currently unlimited),
     and whether trials still flagged `moving_at_onset` (sub-threshold
     movement) should be excluded from reaction time (currently excluded).
-11. **Profile source rule.** Latest completed baseline session per task
+11. **Profile source rule.** Initial completed baseline session per task
     (placeholder). Alternatives: all baseline sessions, best-of, a fixed
     session number.
 12. **Recommendation components, weights, normalisation and rules**
     (`recommendation`, `confirmed: false`). Every rule is a placeholder
     hypothesis; none is validated. Also undecided: top N, and whether source
     fidelity should influence the score at all.
-13. **Re-test design.** Candidate sessions always follow the baseline (order
-    effect) and reuse the same seed (familiar sequence). Undecided: number of
-    sessions per condition, washout, counterbalancing, different seeds, and
-    which baseline a candidate session is compared with (currently the latest
-    completed baseline of the same task). Participants can also re-test their
+13. **Re-test design.** Candidate and Standard sessions always follow the
+    baseline (order effect); their order is counterbalanced (CS / SC,
+    placeholder allocation) and each condition uses its own seed (placeholder
+    values). Undecided: number of sessions per condition, washout / rest
+    duration, familiarization length, and the allocation method. Evaluation
+    sessions are compared with the initial baseline; individual debug re-tests
+    with the latest completed baseline of the same task. Participants can also re-test their
     own custom crosshairs or any database crosshair; such sessions have no
     `recommendation_id`. Whether these are allowed in the study is undecided.
 

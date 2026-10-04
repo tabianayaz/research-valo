@@ -1,7 +1,8 @@
-"""Comparison screen (Milestone 12): candidate session vs its linked baseline.
+"""Comparison screen (Milestone 12): candidate session vs its linked baseline,
+and (Phase 5) the three conditions of a crosshair evaluation cycle.
 
 Shows measured differences only (see ``app.analysis.comparison``). Wording is
-limited to "higher / lower with candidate"; no causal claims are made.
+limited to "higher / lower"; no causal claims are made.
 """
 
 from __future__ import annotations
@@ -20,12 +21,20 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from app.analysis.comparison import CSV_HEADER, SessionComparison, compare_sessions
+from app.analysis.comparison import (
+    CONDITION_CSV_HEADER,
+    CONDITION_LABELS,
+    CSV_HEADER,
+    ConditionComparison,
+    SessionComparison,
+    compare_conditions,
+    compare_sessions,
+)
 from app.analysis.export import export_rows
-from app.analysis.metrics import ANALYSIS_VERSION
+from app.analysis.metrics import ANALYSIS_VERSION, METRICS, format_metric
 from app.app_context import AppContext
 from app.crosshair.config import CrosshairConfig
-from app.data.models import AssessmentStage, Condition, ExperimentType, TrialResult
+from app.data.models import NON_ANALYSED_STAGES, Condition, ExperimentType, TrialResult
 from app.ui.charts import BASELINE_COLOR, CANDIDATE_COLOR, ChartCanvas
 from app.ui.components import Banner, BasePage, Card, PageId, combo_box, label, secondary_button
 from app.ui.crosshair_widgets import thumbnail
@@ -37,6 +46,8 @@ log = get_logger("ui.comparison")
 
 COLUMNS = ["Metric", "Baseline", "Candidate", "Difference (candidate − baseline)", "% difference",
            "Measured direction", "Desirable direction"]
+CONDITION_COLUMNS = ["Metric", "Baseline", "Standard", "Candidate", "Baseline → Standard",
+                     "Baseline → Candidate", "Standard → Candidate"]
 
 
 class ComparisonPage(BasePage):
@@ -101,13 +112,55 @@ class ComparisonPage(BasePage):
         self.chart = ChartCanvas(260)
         self.chart_card.body.addWidget(self.chart)
         self.content.addWidget(self.chart_card)
+
+        self.condition_comparison: ConditionComparison | None = None
+        self.evaluation_card = Card("Crosshair evaluation: three conditions")
+        evaluation_row = QHBoxLayout()
+        self.evaluation_combo = combo_box(320)
+        self.evaluation_combo.currentIndexChanged.connect(self._on_evaluation_changed)
+        self.evaluation_task_combo = combo_box(200)
+        for task in ExperimentType:
+            self.evaluation_task_combo.addItem(task_label(task), str(task))
+        self.evaluation_task_combo.currentIndexChanged.connect(self._on_evaluation_changed)
+        self.evaluation_export_button = secondary_button("Export CSV")
+        self.evaluation_export_button.clicked.connect(self._export_evaluation)
+        evaluation_row.addWidget(label("Evaluation", "mutedLabel"))
+        evaluation_row.addWidget(self.evaluation_combo, 1)
+        evaluation_row.addWidget(self.evaluation_task_combo)
+        evaluation_row.addWidget(self.evaluation_export_button)
+        self.evaluation_card.body.addLayout(evaluation_row)
+        self.evaluation_status = label("", "mutedLabel", wrap=True)
+        self.evaluation_card.body.addWidget(self.evaluation_status)
+        self.evaluation_caveats = Banner()
+        self.evaluation_card.body.addWidget(self.evaluation_caveats)
+        self.evaluation_table = QTableWidget(0, len(CONDITION_COLUMNS))
+        self.evaluation_table.setHorizontalHeaderLabels([tr(c) for c in CONDITION_COLUMNS])
+        self.evaluation_table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.evaluation_table.setWordWrap(True)
+        self.evaluation_table.verticalHeader().setVisible(False)
+        self.evaluation_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        self.evaluation_table.horizontalHeader().setStretchLastSection(True)
+        self.evaluation_table.setMinimumHeight(320)
+        self.evaluation_card.body.addWidget(self.evaluation_table)
+        self.evaluation_card.body.addWidget(label(
+            "Descriptive differences of single sessions only (no statistical test). “%” is only given for "
+            "times and distances; pp = percentage points.", "faintLabel", wrap=True))
+        self.content.addWidget(self.evaluation_card)
         self.finish_layout()
 
     # ------------------------------------------------------------- navigation
     def on_page_shown(self) -> None:
         self.reload_sessions()
+        self.reload_evaluations()
 
     def show_section(self, section: str) -> None:
+        kind, _, rest = section.partition(":")
+        if kind == "evaluation" and rest.isdigit():
+            index = self.evaluation_combo.findData(int(rest))
+            if index >= 0:
+                self.evaluation_combo.setCurrentIndex(index)
+                self._on_evaluation_changed()
+            return
         if section.isdigit():
             index = self.session_combo.findData(int(section))
             if index >= 0:
@@ -122,7 +175,7 @@ class ComparisonPage(BasePage):
             player.player_id if player else None, condition=Condition.CANDIDATE)
         sessions = [
             session for session in sessions
-            if session.assessment_stage != AssessmentStage.PRACTICE
+            if session.assessment_stage not in NON_ANALYSED_STAGES
             and session.parent_session_id is not None
         ]
         self.session_combo.blockSignals(True)
@@ -243,6 +296,86 @@ class ComparisonPage(BasePage):
         self.chart_card.set_title(
             "Time on target per trial" if tracking else "Completion time per hit")
         self.chart.finish(ax)
+
+    # ------------------------------------------------------ crosshair evaluation
+    def reload_evaluations(self) -> None:
+        current = self.evaluation_combo.currentData()
+        player = self.context.current_player
+        evaluations = self.context.repository.list_condition_evaluations(player.player_id if player else None)
+        self.evaluation_combo.blockSignals(True)
+        self.evaluation_combo.clear()
+        for e in evaluations:
+            self.evaluation_combo.addItem(
+                tr("Evaluation #{evaluation_id}  ·  recommendation #{recommendation_id}  ·  {status}",
+                   evaluation_id=e.evaluation_id, recommendation_id=e.recommendation_id,
+                   status=display(e.status)), e.evaluation_id)
+        self.evaluation_combo.blockSignals(False)
+        self.evaluation_card.setVisible(bool(evaluations))
+        if not evaluations:
+            self.condition_comparison = None
+            return
+        index = self.evaluation_combo.findData(current)
+        self.evaluation_combo.setCurrentIndex(index if index >= 0 else 0)
+        self._on_evaluation_changed()
+
+    def _on_evaluation_changed(self, *_args) -> None:
+        evaluation_id = self.evaluation_combo.currentData()
+        task = self.evaluation_task_combo.currentData()
+        if evaluation_id is None or task is None:
+            return
+        try:
+            comp = compare_conditions(self.context.repository, evaluation_id, task)
+        except Exception as exc:  # noqa: BLE001 - shown to the user, never silent
+            log.exception("condition_comparison_failed evaluation_id=%s", evaluation_id)
+            self.condition_comparison = None
+            self.banner.show_message("Could not compare evaluation {evaluation_id}: {error}", Banner.Kind.ERROR,
+                                     evaluation_id=evaluation_id, error=exc)
+            return
+        self.condition_comparison = comp
+        e = comp.evaluation
+        sessions = "  ·  ".join(
+            f"{tr(CONDITION_LABELS[c])}: " + (f"#{a.session.session_id}" if a else tr("not recorded"))
+            for c, a in comp.analyses.items())
+        self.evaluation_status.setText(
+            tr("Order {group} ({order})  ·  selected candidate #{candidate}  ·  protocol {protocol}",
+               group=e.condition_order_group,
+               order=" → ".join(tr(CONDITION_LABELS[Condition(c)]) for c in e.condition_order),
+               candidate=e.selected_candidate_id, protocol=e.protocol_version or "–")
+            + "\n" + sessions)
+        self.evaluation_caveats.show_message(
+            tr("Caveats:") + " " + " ".join(tr_message(c) for c in comp.caveats), Banner.Kind.WARNING)
+        metric_names = [m.name for m in comp.pairs[0].metrics]
+        self.evaluation_table.setRowCount(len(metric_names))
+        for r, name in enumerate(metric_names):
+            values = [tr(METRICS[name].label)]
+            for condition in CONDITION_LABELS:
+                analysis = comp.analyses[condition]
+                values.append(format_metric(name, analysis.metrics.get(name)) if analysis else "–")
+            for pair in comp.pairs:
+                template, parts = pair.metrics[r].summary(pair.reference_label, pair.compared_label)
+                parts = {k: tr(v) if k in ("other", "reference") else v for k, v in parts.items()}
+                values.append(tr(template, **parts))
+            for c, value in enumerate(values):
+                item = QTableWidgetItem(value)
+                if 0 < c < 4:
+                    item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+                self.evaluation_table.setItem(r, c, item)
+        self.evaluation_table.resizeRowsToContents()
+
+    def _export_evaluation(self) -> None:
+        comp = self.condition_comparison
+        if comp is None:
+            return
+        try:
+            path = export_rows(self.context.settings.exports_dir,
+                               f"condition_comparison_evaluation{comp.evaluation.evaluation_id}_{comp.task}",
+                               CONDITION_CSV_HEADER + ["caveats"],
+                               [row + [json.dumps(comp.caveats, ensure_ascii=False)] for row in comp.csv_rows()])
+        except Exception as exc:  # noqa: BLE001
+            log.exception("condition_comparison_export_failed")
+            self.banner.show_message("Export failed: {error}", Banner.Kind.ERROR, error=exc)
+            return
+        self.banner.show_message("Exported to {folder}", Banner.Kind.SUCCESS, folder=path)
 
     def _export(self) -> None:
         if self.comparison is None:

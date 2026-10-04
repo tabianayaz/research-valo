@@ -145,7 +145,13 @@ def test_full_pipeline(context, qapp) -> None:
     session = repo.get_session(candidate_id)
     assert (session.condition, session.parent_session_id, session.recommendation_id, session.crosshair_id) == \
         (Condition.CANDIDATE, baseline_id, rec_id, chosen.crosshair_id)
-    assert session.task_config["plan"] == repo.get_session(baseline_id).task_config["plan"]
+    # Phase 5 (requirement 8): the candidate condition uses its own seed, so the target sequence
+    # differs from the baseline while the task parameters (distance distribution) stay the same.
+    baseline_plan = repo.get_session(baseline_id).task_config["plan"]
+    assert session.task_config["plan"] != baseline_plan
+    assert sorted(p["planned_distance_px"] for p in session.task_config["plan"]) == \
+        sorted(p["planned_distance_px"] for p in baseline_plan)
+    assert session.seed_group == "candidate" and session.random_seed != repo.get_session(baseline_id).random_seed
 
     # Candidate sessions never feed the profile.
     assert build_profile(repo, "P-TASK").source_session_ids == [baseline_id]

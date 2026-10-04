@@ -8,14 +8,18 @@ back from the stored run so earlier runs can be reviewed unchanged.
 from __future__ import annotations
 
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMessageBox, QVBoxLayout, QWidget
 
 from app.analysis.metrics import METRICS, TASK_METRICS, format_metric
 from app.analysis.profile import PROFILE_RULE, build_profile
 from app.app_context import AppContext
 from app.crosshair.config import CrosshairConfig
-from app.data.models import ExperimentType
+from app.data.models import ConditionEvaluation, ExperimentType
+from app.data.repository import RepositoryError
+from app.experiment.evaluation import EvaluationError, start_evaluation
+from app.experiment.protocol import build_protocol
 from app.recommendation.engine import COMPONENT_LABELS, COMPONENTS, score_candidates, store_recommendation
+from app.utils.validators import ValidationError
 from app.ui.components import (
     Banner,
     BasePage,
@@ -79,7 +83,8 @@ class RecommendationPage(BasePage):
         self.profile_rule_label = label("", "faintLabel", wrap=True)
         set_tr_text(
             self.profile_rule_label,
-            "Source rule: {rule} (placeholder). Aborted and candidate sessions are not used.",
+            "Source rule: {rule} (placeholder). Aborted, practice, familiarization, standard and "
+            "candidate sessions are not used.",
             rule=PROFILE_RULE,
         )
         self.profile_card.body.addWidget(self.profile_rule_label)
@@ -139,11 +144,27 @@ class RecommendationPage(BasePage):
             card.setVisible(False)
 
     # ---------------------------------------------------------------- actions
+    def _debug_mode(self) -> bool:
+        try:
+            return build_protocol(self.context.research).debug_task_selection_enabled
+        except ValidationError:
+            return False
+
+    def _evaluations(self) -> list[ConditionEvaluation]:
+        player = self.context.current_player
+        return self.context.repository.list_condition_evaluations(player.player_id) if player else []
+
     def generate(self) -> None:
         player = self.context.current_player
         if player is None:
             return
         repo = self.context.repository
+        if self._evaluations() and not self._debug_mode():
+            self.banner.show_message(
+                "A crosshair evaluation already uses a recommendation run of this participant. The "
+                "recommendation is generated once per cycle and later sessions do not change it.",
+                Banner.Kind.WARNING)
+            return
         try:
             profile = build_profile(repo, player.player_id)
             if not profile.tasks:
@@ -169,8 +190,36 @@ class RecommendationPage(BasePage):
         rec = self.recommendation
         if rec is None:
             return
-        self.context.repository.mark_candidate_selected(rec["recommendation_id"], crosshair_id)
+        try:
+            self.context.repository.mark_candidate_selected(rec["recommendation_id"], crosshair_id)
+        except RepositoryError as exc:
+            self.banner.show_message(str(exc), Banner.Kind.WARNING)
+            return
         self.navigate_requested.emit(f"{PageId.ASSESSMENT}:candidate:{rec['recommendation_id']}:{crosshair_id}")
+
+    def select_for_evaluation(self, crosshair_id: int, confirm: bool = True) -> ConditionEvaluation | None:
+        """Fix one candidate for the crosshair evaluation (cannot be changed afterwards)."""
+        rec = self.recommendation
+        player = self.context.current_player
+        if rec is None or player is None:
+            return None
+        if confirm:
+            answer = QMessageBox.question(
+                self, tr("Select for crosshair evaluation"),
+                tr("Use this crosshair for the crosshair evaluation? The selection cannot be changed afterwards."),
+            )
+            if answer != QMessageBox.StandardButton.Yes:
+                return None
+        try:
+            evaluation = start_evaluation(self.context.repository, build_protocol(self.context.research),
+                                          player.player_id, rec["recommendation_id"], crosshair_id)
+        except (EvaluationError, RepositoryError, ValidationError) as exc:
+            self.banner.show_message(str(exc), Banner.Kind.WARNING)
+            return None
+        self.reload_runs(rec["recommendation_id"])
+        self.banner.show_message("Candidate selected. Next assessment: Crosshair evaluation", Banner.Kind.SUCCESS)
+        self.navigate_requested.emit(str(PageId.ASSESSMENT))
+        return evaluation
 
     # --------------------------------------------------------------- display
     def _on_run_changed(self, index: int) -> None:
@@ -333,8 +382,21 @@ class RecommendationPage(BasePage):
         info.addWidget(label(self._explanation(candidate), "faintLabel", wrap=True))
         row.addLayout(info, 1)
 
+        buttons = QVBoxLayout()
+        evaluations = self._evaluations()
+        fixed = next((e for e in evaluations if e.recommendation_id == self.recommendation["recommendation_id"]),
+                     None)
+        if fixed is not None and fixed.selected_candidate_id == record.crosshair_id:
+            buttons.addWidget(label("Selected for crosshair evaluation", "successLabel"))
+        select = primary_button("Select for crosshair evaluation")
+        select.setEnabled(not evaluations)
+        select.clicked.connect(lambda _=False, cid=record.crosshair_id: self.select_for_evaluation(cid))
+        buttons.addWidget(select)
         button = secondary_button("Try this candidate")
         button.clicked.connect(lambda _=False, cid=record.crosshair_id: self._try_candidate(cid))
-        row.addWidget(button, 0, Qt.AlignmentFlag.AlignTop)
+        button.setVisible(self._debug_mode())
+        buttons.addWidget(button)
+        buttons.addStretch(1)
+        row.addLayout(buttons)
         card.body.addLayout(row)
         return card

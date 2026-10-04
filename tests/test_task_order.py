@@ -308,8 +308,9 @@ def test_export_contains_task_order_metadata(context, qapp, tmp_path) -> None:
 # ---------------------------------------------------------------- migration
 def test_migration_5_preserves_historical_sessions_and_raw_trials(tmp_path, monkeypatch) -> None:
     path = tmp_path / "schema4.db"
-    migration_5 = database_module.MIGRATIONS[5]
-    monkeypatch.delitem(database_module.MIGRATIONS, 5)
+    later = {v: sql for v, sql in database_module.MIGRATIONS.items() if v >= 5}
+    for version in later:
+        monkeypatch.delitem(database_module.MIGRATIONS, version)
     old = Database(path).open()
     assert old.schema_version() == "4"
     old.connection.execute(
@@ -334,10 +335,11 @@ def test_migration_5_preserves_historical_sessions_and_raw_trials(tmp_path, monk
     old.connection.commit()
     old.close()
 
-    monkeypatch.setitem(database_module.MIGRATIONS, 5, migration_5)
+    for version, sql in later.items():
+        monkeypatch.setitem(database_module.MIGRATIONS, version, sql)
     migrated = Database(path).open()
     repo = Repository(migrated)
-    assert migrated.schema_version() == "5"
+    assert migrated.schema_version() == str(max(later))
     assert len(repo.list_trials(1)) == 1
     historical = repo.get_session(1)
     assert historical.task_order_group is None

@@ -67,12 +67,15 @@ class HistoryPage(BasePage):
         summaries = self.context.repository.list_session_summaries()
         self._comparison_sessions = {
             s.session_id for s in summaries
-            if str(s.condition) == "candidate" and str(s.assessment_stage) != "practice"
+            if str(s.condition) == "candidate" and str(s.assessment_stage) not in ("practice", "familiarization")
         }
         self.table.setRowCount(len(summaries))
         for row, s in enumerate(summaries):
+            condition = display(s.condition)
+            if s.condition_position:
+                condition += f" ({s.condition_position}/2)"
             values = [s.session_id, s.player_id, s.started_at[:19].replace("T", " "),
-                      display(s.experiment_type), display(s.condition), s.task_order_group or "–",
+                      display(s.experiment_type), condition, s.task_order_group or "–",
                       f"{s.task_position}/3" if s.task_position else "–",
                       display(s.assessment_stage) if s.assessment_stage else "–",
                       s.session_number, display(s.status),

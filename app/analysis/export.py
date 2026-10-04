@@ -29,6 +29,13 @@ SESSION_ORDER_COLUMNS = [
     "participant_id", "session_id", "task_order_group", "task_order",
     "task_position", "assessment_stage",
 ]
+# Phase 5 condition metadata. Historical sessions export these as empty values
+# (unknown); nothing is inferred for them.
+CONDITION_COLUMNS = [
+    "task", "condition", "condition_position", "condition_order_group", "condition_order",
+    "evaluation_id", "initial_baseline_session_id", "recommendation_run_id", "selected_candidate_id",
+    "protocol_version", "seed", "seed_group", "crosshair_id",
+]
 
 
 def _stamp() -> str:
@@ -58,6 +65,23 @@ def export_session(repo: Repository, analysis: SessionAnalysis, exports_dir: Pat
         session.task_position,
         session.assessment_stage,
     ]
+    condition_values = [
+        str(session.experiment_type),
+        str(session.condition),
+        session.condition_position,
+        session.condition_order_group,
+        json.dumps(list(session.condition_order)) if session.condition_order else "",
+        session.evaluation_id,
+        session.initial_baseline_session_id,
+        session.recommendation_id,
+        session.selected_candidate_id,
+        session.protocol_version,
+        session.random_seed,
+        session.seed_group,
+        session.crosshair_id,
+    ]
+    order_values = [*order_values, *condition_values]
+    header = [*SESSION_ORDER_COLUMNS, *CONDITION_COLUMNS]
 
     def validity(trial) -> list[Any]:
         row = rows_by_id.get(trial.trial_id)
@@ -67,7 +91,7 @@ def export_session(repo: Repository, analysis: SessionAnalysis, exports_dir: Pat
 
     _write_csv(
         folder / "trials.csv",
-        [*SESSION_ORDER_COLUMNS, *TRIAL_COLUMNS, *VALIDITY_COLUMNS, "extra_json"],
+        [*header, *TRIAL_COLUMNS, *VALIDITY_COLUMNS, "extra_json"],
         [[*order_values, *[getattr(t, c) for c in TRIAL_COLUMNS], *validity(t),
           json.dumps(t.extra, sort_keys=True) if t.extra else ""] for t in trials],
     )
@@ -80,11 +104,11 @@ def export_session(repo: Repository, analysis: SessionAnalysis, exports_dir: Pat
             event_rows.append([*order_values, t.trial_id, t.trial_number, e.t_ms,
                                e.event_type, e.x, e.y, e.is_hit])
     _write_csv(folder / "samples.csv",
-               [*SESSION_ORDER_COLUMNS, "trial_id", "trial_number", "t_ms", "cursor_x",
+               [*header, "trial_id", "trial_number", "t_ms", "cursor_x",
                 "cursor_y", "target_x", "target_y", "on_target"],
                sample_rows)
     _write_csv(folder / "events.csv",
-               [*SESSION_ORDER_COLUMNS, "trial_id", "trial_number", "t_ms", "event_type",
+               [*header, "trial_id", "trial_number", "t_ms", "event_type",
                 "x", "y", "is_hit"], event_rows)
 
     crosshair = repo.get_crosshair(session.crosshair_id)
@@ -93,6 +117,7 @@ def export_session(repo: Repository, analysis: SessionAnalysis, exports_dir: Pat
         "analysis_version": ANALYSIS_VERSION,
         "session": asdict(session),
         "task_order_metadata": dict(zip(SESSION_ORDER_COLUMNS, order_values)),
+        "condition_metadata": dict(zip(CONDITION_COLUMNS, condition_values)),
         "crosshair": asdict(crosshair) if crosshair else None,
         "metrics": {
             name: {"value": value, "unit": METRICS[name].unit, "label": METRICS[name].label}

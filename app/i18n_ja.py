@@ -45,7 +45,9 @@ JA: dict[str, str] = {
     "in_progress": "進行中",
     "completed": "完了",
     "aborted": "中断",
+    "standard": "標準",
     "practice": "練習",
+    "familiarization": "慣熟",
     "experimental": "本測定",
     "combined": "練習＋本測定",
     "counterbalanced": "カウンターバランス",
@@ -333,9 +335,10 @@ JA: dict[str, str] = {
     "your own choice (not from a recommendation; stored without a recommendation id)":
         "自分で選択（推薦によらないため、推薦IDなしで保存）",
     "Re-test with this crosshair, {origin}. The session is recorded as condition “candidate” and linked "
-    "to the {rule} for comparison. Task parameters and seed are the same as the baseline.":
+    "to the {rule} for comparison. Task parameters are the same as the baseline; the target sequence uses "
+    "the candidate seed.":
         "このクロスヘアで再測定します（{origin}）。セッションは条件「候補」として記録され、比較のため{rule}に"
-        "紐付けられます。課題パラメータとシードはベースラインと同じです。",
+        "紐付けられます。課題パラメータはベースラインと同じで、ターゲット系列には候補用のシードを使います。",
     "Other crosshairs can be chosen above; recommended candidates appear here after “Generate candidates” "
     "on the Recommendation page.":
         "上で他のクロスヘアも選べます。推薦ページで「候補を生成」を実行すると、推薦候補がここに表示されます。",
@@ -370,6 +373,33 @@ JA: dict[str, str] = {
     "This participant already has an unfinished controlled assessment. Resume it before changing the "
     "condition or crosshair.":
         "この参加者には未完了の統制測定があります。条件やクロスヘアを変更する前に、それを再開してください。",
+    "Next assessment: Crosshair evaluation": "次の測定: クロスヘア評価",
+    "Crosshair evaluation — part {position} of 2": "クロスヘア評価 — 全2部のうち第{position}部",
+    "Next familiarization:\n{task}": "次の慣熟:\n{task}",
+    "Next familiarization: {task}": "次の慣熟: {task}",
+    "Resume crosshair evaluation": "クロスヘア評価を再開",
+    "Start crosshair evaluation part {position}": "クロスヘア評価の第{position}部を開始",
+    "Rest before the next part: {seconds} s": "次の部の前の休憩: 残り {seconds} 秒",
+    "Researcher view: evaluation #{evaluation_id}, order {group}, next condition {condition}":
+        "研究者表示: 評価 #{evaluation_id}、順序 {group}、次の条件 {condition}",
+    "Crosshair evaluation complete. All assigned tasks were recorded.":
+        "クロスヘア評価が完了しました。割り当てられたすべての課題が記録されました。",
+    "Part {position} of 2 complete. Next assessment: Crosshair evaluation":
+        "全2部のうち第{position}部が完了しました。次の測定: クロスヘア評価",
+    "Controlled post-baseline assessments run as a crosshair evaluation: select one candidate on the "
+    "Recommendation page (“Select for crosshair evaluation”).":
+        "ベースライン後の統制測定はクロスヘア評価として実施します。推薦ページで候補を1つ選んでください"
+        "（「クロスヘア評価に選択」）。",
+    "The stored standard crosshair no longer matches the baseline crosshair snapshot.":
+        "保存されている標準クロスヘアが、ベースラインのクロスヘアスナップショットと一致しません。",
+    "This crosshair evaluation is already complete.": "このクロスヘア評価はすでに完了しています。",
+    "The crosshair of this condition no longer exists.": "この条件のクロスヘアが存在しません。",
+    "This participant already has an unfinished crosshair evaluation.":
+        "この参加者には未完了のクロスヘア評価があります。",
+    "A candidate has already been selected for this recommendation run.":
+        "この推薦ではすでに候補が選択されています。",
+    "The candidate for this recommendation run is fixed by its crosshair evaluation.":
+        "この推薦の候補はクロスヘア評価によって固定されています。",
 
     # ------------------------------------------------------------ experiment window
     "Practice complete. The experimental assessment will begin.": "練習が終わりました。本測定を始めます。",
@@ -392,6 +422,12 @@ JA: dict[str, str] = {
     "(Task parameters are placeholders and not yet confirmed)": "（課題パラメータは仮の値で、まだ確定していません）",
     "Practice complete: {count} trials saved for audit (not analysed)":
         "練習が完了しました: 確認用に {count} 試行を保存しました（分析対象外）",
+    "Familiarization": "慣熟",
+    "Familiarization: {count} trials (not analysed)": "慣熟: {count} 試行（分析対象外）",
+    "Familiarization complete: {count} trials saved for audit (not analysed)":
+        "慣熟が完了しました: 確認用に {count} 試行を保存しました（分析対象外）",
+    "Researcher view: condition {condition}, order {group}, crosshair {name}":
+        "研究者表示: 条件 {condition}、順序 {group}、クロスヘア {name}",
     "Session ended. No experimental trials were recorded.\n\nPress Space to return":
         "セッションを終了しました。本測定の試行は記録されていません。\n\nスペースキーで戻る",
     "  ·  {count} invalid (moved before the target) repeated": "  ·  無効 {count} 件（ターゲット表示前の移動）をやり直し",
@@ -543,9 +579,19 @@ JA: dict[str, str] = {
     "Generate candidates": "候補を生成",
     "Stored runs": "保存済みの推薦",
     "Your baseline profile": "あなたのベースラインプロファイル",
-    "Source rule: {rule} (placeholder). Aborted and candidate sessions are not used.":
-        "使用するデータ: {rule}（仮の規則）。中断したセッションと候補セッションは使いません。",
-    "latest completed baseline session per task": "課題ごとの最新の完了済みベースラインセッション",
+    "Source rule: {rule} (placeholder). Aborted, practice, familiarization, standard and candidate "
+    "sessions are not used.":
+        "使用するデータ: {rule}（仮の規則）。中断、練習、慣熟、標準条件、候補条件のセッションは使いません。",
+    "initial completed baseline session per task": "課題ごとの最初の完了済みベースラインセッション",
+    "A crosshair evaluation already uses a recommendation run of this participant. The recommendation is "
+    "generated once per cycle and later sessions do not change it.":
+        "この参加者の推薦はすでにクロスヘア評価で使われています。推薦は1サイクルにつき1回だけ生成され、"
+        "その後のセッションによって変わることはありません。",
+    "Select for crosshair evaluation": "クロスヘア評価に選択",
+    "Selected for crosshair evaluation": "クロスヘア評価に選択済み",
+    "Use this crosshair for the crosshair evaluation? The selection cannot be changed afterwards.":
+        "このクロスヘアをクロスヘア評価に使いますか？選択は後から変更できません。",
+    "Candidate selected. Next assessment: Crosshair evaluation": "候補を選択しました。次の測定: クロスヘア評価",
     "Rules (placeholder hypotheses, not validated)": "ルール（仮説段階で未検証）",
     "Candidates to try": "試す候補",
     "({version}, {count} candidates)": "（{version}、候補 {count} 件）",
@@ -665,6 +711,56 @@ JA: dict[str, str] = {
     "identical.":
         "2つのセッションで課題パラメータまたは表示領域のサイズが異なるため、ターゲット系列は同一ではありません。",
     "Task parameters are placeholders (confirmed = false).": "課題パラメータは仮の値です（confirmed = false）。",
+    "The candidate session was recorded after the baseline session, so practice or familiarity can "
+    "contribute to any difference (order effect). It used a different seed (same task parameters, "
+    "different target sequence); the seeds are not claimed to be equivalent in difficulty.":
+        "候補セッションはベースラインセッションの後に記録されたため、練習や慣れが差に影響している可能性があります"
+        "（順序効果）。候補セッションは別のシードを使用しています（課題パラメータは同じで、ターゲット系列が異なる）。"
+        "シード間で難易度が等しいとは主張しません。",
+    # three-condition comparison (Phase 5)
+    "Crosshair evaluation: three conditions": "クロスヘア評価: 3条件の比較",
+    "Evaluation": "評価",
+    "Evaluation #{evaluation_id}  ·  recommendation #{recommendation_id}  ·  {status}":
+        "評価 #{evaluation_id}  ·  推薦 #{recommendation_id}  ·  {status}",
+    "Could not compare evaluation {evaluation_id}: {error}": "評価 {evaluation_id} を比較できませんでした: {error}",
+    "Order {group} ({order})  ·  selected candidate #{candidate}  ·  protocol {protocol}":
+        "順序 {group}（{order}）  ·  選択した候補 #{candidate}  ·  プロトコル {protocol}",
+    "Descriptive differences of single sessions only (no statistical test). “%” is only given for times "
+    "and distances; pp = percentage points.":
+        "単一セッション間の記述的な差のみです（統計的検定なし）。「%」は時間と距離にのみ示します。"
+        "pp = パーセントポイント。",
+    "Standard": "標準",
+    "Baseline → Standard": "ベースライン → 標準",
+    "Baseline → Candidate": "ベースライン → 候補",
+    "Standard → Candidate": "標準 → 候補",
+    "higher with standard": "標準の方が高い",
+    "lower with standard": "標準の方が低い",
+    "{other} condition was {amount} higher than {reference} condition.":
+        "{other}条件は{reference}条件より{amount}高かった。",
+    "{other} condition was {amount} lower than {reference} condition.":
+        "{other}条件は{reference}条件より{amount}低かった。",
+    "{other} condition showed no measured difference from {reference} condition.":
+        "{other}条件と{reference}条件の間に測定上の差はなかった。",
+    "No data for {other} or {reference} condition.": "{other}条件または{reference}条件のデータがありません。",
+    "Descriptive comparison of single sessions. No statistical test was performed; differences may be "
+    "within normal session-to-session variation.":
+        "単一セッションの記述的な比較です。統計的検定は行っていません。差は通常のセッション間のばらつきの範囲内で"
+        "ある可能性があります。",
+    "Standard repeats the baseline crosshair; a Baseline–Standard difference can arise without any "
+    "crosshair change (repetition or session-to-session variation).":
+        "標準条件はベースラインと同じクロスヘアを繰り返します。ベースラインと標準の差は、クロスヘアを変えなくても"
+        "（繰り返しやセッション間のばらつきにより）生じ得ます。",
+    "Each condition used a different seed (same task parameters, different target sequence); the seeds "
+    "are not claimed to be equivalent in difficulty.":
+        "各条件は異なるシードを使用しています（課題パラメータは同じで、ターゲット系列が異なる）。シード間で難易度が"
+        "等しいとは主張しません。",
+    "Practice and familiarization trials are excluded from all metrics.":
+        "練習と慣熟の試行はすべての指標から除外されます。",
+    "The sessions were recorded with different timing procedures, so their time measures are not directly "
+    "comparable.":
+        "セッションは異なるタイミング手順で記録されているため、時間の指標は直接比較できません。",
+    "Task parameters or the arena size differ between the sessions.":
+        "セッション間で課題パラメータまたは表示領域のサイズが異なります。",
 
     # ------------------------------------------------------------ history
     "All recorded sessions. Aborted sessions are kept; raw trial data is never deleted. Double-click a "
