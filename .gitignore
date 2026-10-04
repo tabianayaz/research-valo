@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Research data is stored locally and must not be committed by accident.
+data/
+
+# Separate clone of another repository.
+research-valo/

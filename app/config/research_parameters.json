@@ -1,0 +1,157 @@
+{
+  "_comment": "Research parameters. Values marked as placeholders are NOT research decisions; confirm them before collecting data. Changing the baseline creates a new baseline crosshair row; earlier sessions keep the crosshair they used.",
+  "baseline_confirmed": false,
+  "baseline_crosshair": {
+    "name": "Standard crosshair (baseline)",
+    "color": "#FFFFFF",
+    "size": 6,
+    "thickness": 2,
+    "gap": 3,
+    "outline_enabled": true,
+    "outline_thickness": 1,
+    "opacity": 0.8
+  },
+  "crosshair_units": {
+    "px_per_unit": 1.0,
+    "_comment": "1 crosshair unit is rendered as px_per_unit physical (device) pixels. Placeholder: whether units should scale with display resolution is a research decision."
+  },
+  "crosshair_parameter_ranges": {
+    "size": [1, 20],
+    "thickness": [1, 10],
+    "gap": [0, 20],
+    "outline_thickness": [1, 6],
+    "opacity": [0.05, 1.0]
+  },
+  "experiment_background_color": "#3C4146",
+  "protocol": {
+    "_comment": "Experiment protocol (app/experiment/protocol.py). Every session stores a snapshot; protocol_version = label + hash of that snapshot. PLACEHOLDER: practice counts, seeds and allocation strategy are PILOT_PLACEHOLDER values, not research conclusions.",
+    "label": "pilot-placeholder",
+    "confirmed": false,
+    "practice_enabled": true,
+    "practice_trial_count": {"flick": 3, "tracking": 1, "switching": 1},
+    "practice_random_seed": {"flick": 30261003, "tracking": 30261004, "switching": 30261005},
+    "task_order_method": "counterbalanced",
+    "assignment_method": "participant_sequence_modulo_6",
+    "available_task_orders": ["FTS", "FST", "TFS", "TSF", "SFT", "STF"],
+    "practice_task_order_method": "match_assigned",
+    "practice_fixed_task_order": ["flick", "tracking", "switching"],
+    "_practice_order_comment": "By default all practice tasks follow the participant-assigned order, then all experimental tasks repeat that order. A fixed practice order is available only as a configurable alternative; neither method is claimed to be optimal.",
+    "debug_task_selection_enabled": false,
+    "debug_fixed_task_order": ["flick", "tracking", "switching"],
+    "_debug_comment": "Non-experimental developer mode. This order never replaces a participant's stored counterbalanced assignment."
+  },
+  "flick_task": {
+    "_comment": "PLACEHOLDER values chosen only so the task can be tested. They are not research decisions. All sizes/distances are physical (device) pixels.",
+    "confirmed": false,
+    "trial_count": 30,
+    "target_diameter_px": 40,
+    "target_distances_px": [150, 300, 450],
+    "target_color": "#E8524A",
+    "start_marker_diameter_px": 24,
+    "start_marker_color": "#BFC5CC",
+    "foreperiod_ms": [400, 900],
+    "timeout_ms": 3000,
+    "movement_onset_threshold_px": 3,
+    "_stabilization_comment": "PILOT_PLACEHOLDER: radius = start marker radius, movement threshold = movement_onset_threshold_px, duration chosen only for testing. Research decision required.",
+    "stabilization_radius_px": 12,
+    "stabilization_movement_threshold_px": 3,
+    "stabilization_duration_ms": 300,
+    "random_seed": 20261003
+  },
+  "tracking_task": {
+    "_comment": "PLACEHOLDER values chosen only so the task can be tested. Path: per axis centre + A/2 * sum(w_i * (sin(2*pi*f_i*t + phase_i) - sin(phase_i))); phases come from the seed.",
+    "confirmed": false,
+    "trial_count": 6,
+    "trial_duration_ms": 6000,
+    "target_diameter_px": 48,
+    "target_color": "#E8524A",
+    "start_marker_diameter_px": 24,
+    "start_marker_color": "#BFC5CC",
+    "foreperiod_ms": [400, 900],
+    "movement_onset_threshold_px": 3,
+    "_stabilization_comment": "PILOT_PLACEHOLDER (see flick_task).",
+    "stabilization_radius_px": 12,
+    "stabilization_movement_threshold_px": 3,
+    "stabilization_duration_ms": 300,
+    "sample_interval_ms": 4,
+    "path_amplitude_px": [360, 220],
+    "path_frequencies_hz": [[0.11, 0.27], [0.13, 0.31]],
+    "path_component_weights": [0.65, 0.35],
+    "random_seed": 20261004
+  },
+  "switching_task": {
+    "_comment": "PLACEHOLDER values chosen only so the task can be tested. One click per target; one stored trial row per target.",
+    "confirmed": false,
+    "trial_count": 10,
+    "targets_per_trial": 3,
+    "target_diameter_px": 40,
+    "first_distances_px": [150, 300],
+    "switch_distances_px": [200, 350],
+    "min_separation_px": 80,
+    "target_color": "#E8524A",
+    "inactive_target_color": "#6F7780",
+    "start_marker_diameter_px": 24,
+    "start_marker_color": "#BFC5CC",
+    "foreperiod_ms": [400, 900],
+    "timeout_ms": 3000,
+    "movement_onset_threshold_px": 3,
+    "_stabilization_comment": "PILOT_PLACEHOLDER (see flick_task).",
+    "stabilization_radius_px": 12,
+    "stabilization_movement_threshold_px": 3,
+    "stabilization_duration_ms": 300,
+    "random_seed": 20261005
+  },
+  "recommendation": {
+    "_comment": "PLACEHOLDER rule set for rule-based candidate scoring. The components, weights, thresholds and rule rationales are unvalidated hypotheses chosen only so the pipeline can be tested. They must be reviewed before use in research.",
+    "confirmed": false,
+    "method": "rule_based_candidate_scoring",
+    "method_version": "rules-1",
+    "top_n": 3,
+    "base_weights": {
+      "visibility": 1.0,
+      "center_precision": 1.0,
+      "low_occlusion": 1.0,
+      "source_fidelity": 0.5
+    },
+    "fidelity_scores": {"exact": 1.0, "approximate": 0.6},
+    "normalisation": {
+      "contrast_ratio_full": 7.0,
+      "center_offset_full_px": 12,
+      "extent_full_px": 30
+    },
+    "rules": [
+      {
+        "id": "flick_click_error",
+        "metric": "flick.error_ratio_mean",
+        "op": ">",
+        "threshold": 0.5,
+        "adjust": {"center_precision": 1.0},
+        "rationale": "Placeholder hypothesis: Flick Aim clicks land far from the target centre, so favour crosshairs with a small gap and thin lines (a more precise centre reference)."
+      },
+      {
+        "id": "tracking_time_on_target",
+        "metric": "tracking.on_target_ratio_mean",
+        "op": "<",
+        "threshold": 0.6,
+        "adjust": {"visibility": 1.0},
+        "rationale": "Placeholder hypothesis: the crosshair is often off the moving target, so favour crosshairs that stand out more against the background (contrast, outline, opacity)."
+      },
+      {
+        "id": "switching_hit_rate",
+        "metric": "switching.hit_rate",
+        "op": "<",
+        "threshold": 0.7,
+        "adjust": {"low_occlusion": 1.0},
+        "rationale": "Placeholder hypothesis: targets are often missed while switching, so favour crosshairs that cover less of the target."
+      },
+      {
+        "id": "flick_timeouts",
+        "metric": "flick.timeout_rate",
+        "op": ">",
+        "threshold": 0.1,
+        "adjust": {"visibility": 0.5},
+        "rationale": "Placeholder hypothesis: frequent Flick Aim timeouts, so give extra weight to crosshair visibility."
+      }
+    ]
+  }
+}
