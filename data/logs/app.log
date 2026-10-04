@@ -438,3 +438,100 @@
 2026-10-04 21:47:10,469 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
 2026-10-04 21:47:11,704 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
 2026-10-04 21:47:19,569 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-04 21:47:47,194 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:47:48,658 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:47:59,551 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:48:01,245 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:48:03,330 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:48:04,669 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:48:06,197 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:48:07,245 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:48:12,941 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:48:14,124 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:48:21,390 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-04 21:48:24,689 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 21:48:26,931 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-04 21:48:34,749 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:48:39,965 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:49:09,155 level=CRITICAL logger=crosshair_research msg=uncaught_exception
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\app\ui\crosshair_database.py", line 324, in _on_selection
+    lines += [""] + (listing_messages(listing) or [tr("No differences or warnings.")])
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\app\ui\crosshair_database.py", line 53, in listing_messages
+    [tr("Parse: {text}", text=w) for w in payload.get("parsed", {}).get("warnings", [])]
+     ~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: tr() got multiple values for argument 'text'
+2026-10-04 21:50:10,411 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-04 21:50:10,453 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-04 21:50:23,236 level=INFO logger=crosshair_research.scraper msg=http_get url=https://liquipedia.net/robots.txt status=200
+2026-10-04 21:50:23,282 level=WARNING logger=crosshair_research.ui.source_update msg=source_fetch_failed error=robots.txt of https://liquipedia.net disallows /valorant/api.php.
+2026-10-04 21:50:28,219 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:50:45,734 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-04 21:50:52,167 level=INFO logger=crosshair_research.repository msg=player_updated player_id=ayaz
+2026-10-04 21:50:52,168 level=INFO logger=crosshair_research.repository msg=condition_order_assigned player_id=ayaz group=CS
+2026-10-04 21:50:52,229 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:50:59,120 level=CRITICAL logger=crosshair_research msg=uncaught_exception
+Traceback (most recent call last):
+  File "C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\app\ui\crosshair_database.py", line 324, in _on_selection
+    lines += [""] + (listing_messages(listing) or [tr("No differences or warnings.")])
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\app\ui\crosshair_database.py", line 55, in listing_messages
+    + [tr("Difference: {text}", text=d) for d in mapping.get("differences", [])]
+       ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: tr() got multiple values for argument 'text'
+2026-10-04 21:51:08,996 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:51:34,200 level=INFO logger=crosshair_research.repository msg=task_assessment_started assessment_id=1 player_id=ayaz group=SFT
+2026-10-04 21:51:36,454 level=INFO logger=crosshair_research.repository msg=session_created session_id=7 player_id=ayaz type=switching condition=baseline
+2026-10-04 21:51:36,454 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=7 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-04 21:51:38,619 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=7 plan_index=0
+2026-10-04 21:51:49,244 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=practice session_id=7
+2026-10-04 21:51:49,245 level=INFO logger=crosshair_research.repository msg=session_finished session_id=7 status=completed
+2026-10-04 21:51:49,247 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=practice position=2 status=in_progress
+2026-10-04 21:52:02,189 level=INFO logger=crosshair_research.repository msg=session_created session_id=8 player_id=ayaz type=flick condition=baseline
+2026-10-04 21:52:02,189 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=8 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-04 21:52:14,262 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=practice session_id=8
+2026-10-04 21:52:14,264 level=INFO logger=crosshair_research.repository msg=session_finished session_id=8 status=completed
+2026-10-04 21:52:14,266 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=practice position=3 status=in_progress
+2026-10-04 21:52:31,483 level=INFO logger=crosshair_research.repository msg=session_created session_id=9 player_id=ayaz type=tracking condition=baseline
+2026-10-04 21:52:31,483 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=9 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-04 21:52:34,595 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=9 plan_index=0
+2026-10-04 21:52:43,786 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=practice session_id=9
+2026-10-04 21:52:43,788 level=INFO logger=crosshair_research.repository msg=session_finished session_id=9 status=completed
+2026-10-04 21:52:43,790 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=experimental position=1 status=in_progress
+2026-10-04 21:52:50,188 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:52:52,671 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:53:12,006 level=INFO logger=crosshair_research.repository msg=session_created session_id=10 player_id=ayaz type=switching condition=baseline
+2026-10-04 21:53:12,007 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=10 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-04 21:54:21,696 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=experimental session_id=10
+2026-10-04 21:54:21,697 level=INFO logger=crosshair_research.repository msg=session_finished session_id=10 status=completed
+2026-10-04 21:54:21,699 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=experimental position=2 status=in_progress
+2026-10-04 21:54:29,934 level=INFO logger=crosshair_research.repository msg=session_created session_id=11 player_id=ayaz type=flick condition=baseline
+2026-10-04 21:54:29,934 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=11 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-04 21:56:05,624 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=11 plan_index=23
+2026-10-04 21:56:18,485 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=11 plan_index=25
+2026-10-04 21:56:37,623 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=experimental session_id=11
+2026-10-04 21:56:37,625 level=INFO logger=crosshair_research.repository msg=session_finished session_id=11 status=completed
+2026-10-04 21:56:37,627 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=experimental position=3 status=in_progress
+2026-10-04 21:56:48,667 level=INFO logger=crosshair_research.repository msg=session_created session_id=12 player_id=ayaz type=tracking condition=baseline
+2026-10-04 21:56:48,667 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=12 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-04 21:57:25,237 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=12 plan_index=4
+2026-10-04 21:57:36,645 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=12 plan_index=5
+2026-10-04 21:57:45,105 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=experimental session_id=12
+2026-10-04 21:57:45,106 level=INFO logger=crosshair_research.repository msg=session_finished session_id=12 status=completed
+2026-10-04 21:57:45,108 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=1 stage=experimental position=3 status=completed
+2026-10-04 21:57:56,861 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:58:20,760 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 21:58:24,707 level=INFO logger=crosshair_research.repository msg=recommendation_created id=4 player_id=ayaz candidates=3
+2026-10-04 21:58:24,707 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=4 player=ayaz
+2026-10-04 21:59:08,464 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-04 21:59:20,770 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-04 21:59:22,004 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 21:59:24,172 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:59:26,842 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:59:28,947 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:59:42,517 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 22:00:15,908 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 22:00:39,535 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 22:01:04,936 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
+2026-10-04 22:01:04,936 level=INFO logger=crosshair_research msg=app_exit
