@@ -204,6 +204,19 @@ JA: dict[str, str] = {
     "Enter a name before saving.": "保存する前に名前を入力してください。",
     "Could not save: {error}": "保存できませんでした: {error}",
     "Saved custom crosshair '{name}'.": "カスタムクロスヘア「{name}」を保存しました。",
+    "Delete": "削除",
+    "Delete the selected custom crosshair. Crosshairs used by recorded sessions or recommendations are kept.":
+        "選択したカスタムクロスヘアを削除します。記録済みのセッションや推薦で使用されたクロスヘアは保持されます。",
+    "Delete custom crosshair": "カスタムクロスヘアの削除",
+    "Delete the custom crosshair '{name}'? This cannot be undone.":
+        "カスタムクロスヘア「{name}」を削除しますか？この操作は元に戻せません。",
+    "'{name}' is used by recorded sessions or recommendations and is kept.":
+        "「{name}」は記録済みのセッションまたは推薦で使用されているため保持されます。",
+    "Could not delete: {error}": "削除できませんでした: {error}",
+    "Deleted custom crosshair '{name}'.": "カスタムクロスヘア「{name}」を削除しました。",
+    "Only custom crosshairs can be deleted.": "削除できるのはカスタムクロスヘアのみです。",
+    "This crosshair is used by recorded sessions or recommendations and is kept.":
+        "このクロスヘアは記録済みのセッションまたは推薦で使用されているため保持されます。",
     "color must be a hex colour like #RRGGBB.": "色は #RRGGBB 形式の16進数で指定してください。",
 
     # ------------------------------------------------------------ crosshair database

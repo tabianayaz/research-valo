@@ -322,6 +322,52 @@ class Repository:
             ).fetchall()
         return [self._row_to_crosshair(row) for row in rows]
 
+    _CROSSHAIR_REFERENCES = (
+        ("sessions", "crosshair_id"),
+        ("sessions", "selected_candidate_id"),
+        ("task_assessments", "crosshair_id"),
+        ("recommendation_candidates", "crosshair_id"),
+        ("condition_evaluations", "selected_candidate_id"),
+        ("condition_evaluations", "standard_crosshair_id"),
+    )
+
+    def crosshair_usage(self, crosshair_id: int) -> int:
+        """Number of stored rows that reference this crosshair."""
+        return sum(
+            self._conn.execute(
+                f"SELECT COUNT(*) FROM {table} WHERE {column} = ?", (crosshair_id,)
+            ).fetchone()[0]
+            for table, column in self._CROSSHAIR_REFERENCES
+        )
+
+    def delete_custom_crosshair(self, crosshair_id: int) -> None:
+        """Delete a user-created crosshair that no research record references.
+
+        Baseline and candidate crosshairs, and custom crosshairs already used by a
+        session, assessment, recommendation or evaluation, are never deleted:
+        those rows are part of the raw research record.
+        """
+        record = self.get_crosshair(crosshair_id)
+        if record is None:
+            raise RepositoryError(f"Crosshair {crosshair_id} does not exist.")
+        if record.role != CrosshairRole.CUSTOM:
+            raise RepositoryError("Only custom crosshairs can be deleted.")
+        if self.crosshair_usage(crosshair_id):
+            raise RepositoryError(
+                "This crosshair is used by recorded sessions or recommendations and is kept."
+            )
+        try:
+            with self.db.transaction() as conn:
+                conn.execute(
+                    "DELETE FROM crosshairs WHERE crosshair_id = ? AND role = ?",
+                    (crosshair_id, CrosshairRole.CUSTOM.value),
+                )
+        except sqlite3.IntegrityError as exc:
+            raise RepositoryError(
+                "This crosshair is used by recorded sessions or recommendations and is kept."
+            ) from exc
+        log.info("custom_crosshair_deleted crosshair_id=%s name=%s", crosshair_id, record.name)
+
     @staticmethod
     def _row_to_crosshair(row: sqlite3.Row) -> CrosshairRecord:
         data = dict(row)

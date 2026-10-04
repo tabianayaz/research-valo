@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
     QFormLayout,
     QHBoxLayout,
     QLineEdit,
+    QMessageBox,
     QPushButton,
     QSpinBox,
     QWidget,
@@ -20,7 +21,8 @@ from PySide6.QtWidgets import (
 from app.app_context import AppContext
 from app.crosshair.config import CrosshairConfig
 from app.crosshair.validator import normalize_hex_color
-from app.data.models import CrosshairRole
+from app.data.models import CrosshairRecord, CrosshairRole
+from app.data.repository import RepositoryError
 from app.i18n import display, tr, tr_message
 from app.ui.components import Banner, Card, hbox, label, primary_button, secondary_button
 from app.ui.crosshair_widgets import PreviewPanel
@@ -84,14 +86,22 @@ class CrosshairEditor(QWidget):
 
         self.load_combo = QComboBox()
         self.load_combo.setMinimumWidth(220)
+        self.load_combo.currentIndexChanged.connect(lambda _i: self._update_delete_button())
         load_button = secondary_button("Load")
         load_button.clicked.connect(self._load_selected)
+        self.delete_button = secondary_button("Delete")
+        self.delete_button.setToolTip(tr(
+            "Delete the selected custom crosshair. Crosshairs used by recorded sessions "
+            "or recommendations are kept."
+        ))
+        self.delete_button.clicked.connect(lambda: self.delete_selected())
         reset_button = secondary_button("Reset to standard")
         reset_button.clicked.connect(self.reset_to_baseline)
         settings.body.addWidget(label("Load an existing crosshair", "faintLabel"))
         load_row = QHBoxLayout()
         load_row.addWidget(self.load_combo, 1)
         load_row.addWidget(load_button)
+        load_row.addWidget(self.delete_button)
         settings.body.addLayout(load_row)
         settings.body.addLayout(hbox(reset_button))
 
@@ -182,6 +192,45 @@ class CrosshairEditor(QWidget):
         for record in self.context.repository.list_crosshairs():
             fidelity = f", {display(record.fidelity)}" if record.fidelity else ""
             self.load_combo.addItem(f"{record.name} [{display(record.role)}{fidelity}]", record.crosshair_id)
+        self._update_delete_button()
+
+    def _selected_record(self) -> CrosshairRecord | None:
+        crosshair_id = self.load_combo.currentData()
+        return self.context.repository.get_crosshair(crosshair_id) if crosshair_id else None
+
+    def _update_delete_button(self) -> None:
+        record = self._selected_record()
+        self.delete_button.setEnabled(record is not None and record.role == CrosshairRole.CUSTOM)
+
+    def delete_selected(self, confirm: bool = True) -> bool:
+        record = self._selected_record()
+        if record is None or record.role != CrosshairRole.CUSTOM:
+            return False
+        if self.context.repository.crosshair_usage(record.crosshair_id):
+            self.banner.show_message(
+                "'{name}' is used by recorded sessions or recommendations and is kept.",
+                Banner.Kind.WARNING, name=record.name,
+            )
+            return False
+        if confirm:
+            answer = QMessageBox.question(
+                self, tr("Delete custom crosshair"),
+                tr("Delete the custom crosshair '{name}'? This cannot be undone.").format(
+                    name=record.name),
+            )
+            if answer != QMessageBox.StandardButton.Yes:
+                return False
+        try:
+            self.context.repository.delete_custom_crosshair(record.crosshair_id)
+        except RepositoryError as exc:
+            self.banner.show_message("Could not delete: {error}", Banner.Kind.ERROR,
+                                     error=tr_message(str(exc)))
+            return False
+        self.banner.show_message("Deleted custom crosshair '{name}'.", Banner.Kind.SUCCESS,
+                                 name=record.name)
+        self.refresh_choices()
+        self.context.signals.data_changed.emit()
+        return True
 
     def _load_selected(self) -> None:
         crosshair_id = self.load_combo.currentData()
