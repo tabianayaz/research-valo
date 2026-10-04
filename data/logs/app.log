@@ -405,3 +405,21 @@
 2026-10-04 19:12:35,805 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
 2026-10-04 19:12:44,668 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
 2026-10-04 19:12:44,669 level=INFO logger=crosshair_research msg=app_exit
+2026-10-04 21:35:39,927 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data
+2026-10-04 21:35:40,037 level=INFO logger=crosshair_research.database msg=db_opened path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db schema_version=6
+2026-10-04 21:35:41,493 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-04 21:35:47,904 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:35:48,861 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:35:50,019 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:35:51,677 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-04 21:35:53,334 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-04 21:35:55,025 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-04 21:35:59,557 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-04 21:36:00,644 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:36:06,823 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:37:19,556 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-04 21:37:20,619 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:37:33,803 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-04 21:37:34,603 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-04 21:42:13,803 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
+2026-10-04 21:42:13,804 level=INFO logger=crosshair_research msg=app_exit
