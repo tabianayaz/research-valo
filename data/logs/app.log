@@ -535,3 +535,127 @@ TypeError: tr() got multiple values for argument 'text'
 2026-10-04 22:00:39,535 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
 2026-10-04 22:01:04,936 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
 2026-10-04 22:01:04,936 level=INFO logger=crosshair_research msg=app_exit
+2026-10-07 10:55:45,695 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data
+2026-10-07 10:55:45,838 level=INFO logger=crosshair_research.database msg=db_opened path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db schema_version=6
+2026-10-07 10:55:48,276 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-07 10:56:01,754 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:07:29,314 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:07:30,385 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:07:32,869 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-07 11:07:44,092 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:08:16,984 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:08:23,230 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-07 11:08:29,379 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:08:32,633 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-07 11:08:34,329 level=INFO logger=crosshair_research.repository msg=player_updated player_id=ayaz
+2026-10-07 11:08:34,386 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:08:37,980 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:08:39,755 level=INFO logger=crosshair_research.repository msg=task_assessment_started assessment_id=2 player_id=ayaz group=SFT
+2026-10-07 11:08:42,888 level=INFO logger=crosshair_research.repository msg=session_created session_id=13 player_id=ayaz type=switching condition=baseline
+2026-10-07 11:08:42,888 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=13 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-07 11:08:47,663 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=13 plan_index=0
+2026-10-07 11:08:50,644 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=13 plan_index=0
+2026-10-07 11:09:06,796 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=practice session_id=13
+2026-10-07 11:09:06,798 level=INFO logger=crosshair_research.repository msg=session_finished session_id=13 status=completed
+2026-10-07 11:09:06,800 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=2 stage=practice position=2 status=in_progress
+2026-10-07 11:09:33,777 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:09:54,064 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:10:02,259 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:10:05,063 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:10:06,036 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:10:22,088 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-07 11:10:24,551 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-07 11:11:18,841 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-07 11:12:18,559 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-07 11:12:20,146 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:12:36,909 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:14:32,027 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-07 11:14:33,004 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:14:34,702 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:17:20,454 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:18:00,887 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:19:11,257 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:19:13,832 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:19:14,553 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:19:16,580 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:19:21,287 level=INFO logger=crosshair_research.repository msg=session_created session_id=14 player_id=ayaz type=flick condition=baseline
+2026-10-07 11:19:21,288 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=14 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-07 11:19:27,994 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=14 plan_index=0
+2026-10-07 11:19:56,172 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=practice session_id=14
+2026-10-07 11:19:56,173 level=INFO logger=crosshair_research.repository msg=session_finished session_id=14 status=completed
+2026-10-07 11:19:56,175 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=2 stage=practice position=3 status=in_progress
+2026-10-07 11:20:07,516 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:21:33,942 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:21:35,827 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:22:33,673 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:22:36,091 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:24:38,447 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:25:05,368 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:25:06,247 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:25:07,486 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:25:16,603 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:25:20,408 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:25:22,419 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:25:30,751 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:25:32,404 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:26:06,003 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:26:08,151 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:26:52,082 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:26:54,509 level=INFO logger=crosshair_research.repository msg=session_created session_id=15 player_id=ayaz type=tracking condition=baseline
+2026-10-07 11:26:54,509 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=15 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-07 11:27:06,677 level=INFO logger=crosshair_research.repository msg=session_finished session_id=15 status=aborted
+2026-10-07 11:27:09,187 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-07 11:27:23,651 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:27:25,263 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 11:31:01,838 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:31:02,656 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:32:12,652 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:32:14,175 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:32:47,982 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:33:04,417 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:33:06,227 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:33:08,517 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:33:09,334 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:33:16,486 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:33:18,462 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:34:01,952 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:34:15,079 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:34:27,023 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:34:27,436 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:34:36,612 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:34:41,550 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:34:46,620 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:34:49,849 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:35:00,936 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:35:05,027 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-07 11:35:08,975 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-07 11:35:10,426 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:35:15,099 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:35:31,706 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:35:49,667 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:38:05,791 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:38:08,672 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:38:21,797 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:38:23,707 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:38:26,759 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:38:29,564 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:38:31,602 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:38:33,794 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:38:56,942 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:39:27,218 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:39:28,867 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:39:32,311 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-07 11:39:35,129 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-07 11:39:36,021 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:40:21,202 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-07 11:41:14,201 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-07 11:41:17,159 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:41:19,461 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-07 11:42:51,217 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 11:42:53,366 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-07 11:42:54,905 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-07 11:42:57,314 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-07 12:03:10,467 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 12:06:37,566 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-07 12:06:50,481 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
+2026-10-07 12:06:50,482 level=INFO logger=crosshair_research msg=app_exit
