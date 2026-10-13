@@ -861,3 +861,5 @@ TypeError: tr() got multiple values for argument 'text'
 2026-10-13 19:01:06,085 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
 2026-10-13 19:01:06,324 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
 2026-10-13 19:01:07,727 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-13 19:01:49,346 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-13 19:01:49,347 level=INFO logger=crosshair_research msg=app_exit
