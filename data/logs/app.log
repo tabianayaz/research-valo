@@ -659,3 +659,205 @@ TypeError: tr() got multiple values for argument 'text'
 2026-10-07 12:06:37,566 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
 2026-10-07 12:06:50,481 level=INFO logger=crosshair_research.database msg=db_closed path=C:\Users\MECHREVO\.gemini\antigravity\scratch\research-valo\data\app.db
 2026-10-07 12:06:50,482 level=INFO logger=crosshair_research msg=app_exit
+2026-10-13 16:02:32,343 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-13 16:02:32,658 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=6
+2026-10-13 16:02:33,569 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-13 16:02:41,805 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-13 16:02:42,286 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-13 16:04:19,631 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 16:05:16,901 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-13 16:05:17,716 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-13 16:05:19,160 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-13 16:56:03,376 level=INFO logger=crosshair_research.repository msg=player_created player_id=test
+2026-10-13 16:56:03,376 level=INFO logger=crosshair_research.repository msg=condition_order_assigned player_id=test group=SC
+2026-10-13 16:56:03,401 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-13 16:56:13,653 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 16:57:07,442 level=INFO logger=crosshair_research.repository msg=task_assessment_started assessment_id=3 player_id=test group=FTS
+2026-10-13 17:59:47,209 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-13 17:59:48,702 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 17:59:49,098 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 17:59:50,612 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 17:59:54,108 level=INFO logger=crosshair_research.repository msg=session_created session_id=16 player_id=test type=flick condition=baseline
+2026-10-13 17:59:54,108 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=16 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 17:59:56,383 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=16 plan_index=0
+2026-10-13 18:00:06,260 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=practice session_id=16
+2026-10-13 18:00:06,278 level=INFO logger=crosshair_research.repository msg=session_finished session_id=16 status=completed
+2026-10-13 18:00:06,306 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=practice position=2 status=in_progress
+2026-10-13 18:00:27,801 level=INFO logger=crosshair_research.repository msg=session_created session_id=17 player_id=test type=tracking condition=baseline
+2026-10-13 18:00:27,801 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=17 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:00:36,370 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=practice session_id=17
+2026-10-13 18:00:36,404 level=INFO logger=crosshair_research.repository msg=session_finished session_id=17 status=completed
+2026-10-13 18:00:36,423 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=practice position=3 status=in_progress
+2026-10-13 18:00:39,845 level=INFO logger=crosshair_research.repository msg=session_created session_id=18 player_id=test type=switching condition=baseline
+2026-10-13 18:00:39,845 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=18 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:00:41,679 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=18 plan_index=0
+2026-10-13 18:00:46,274 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=practice session_id=18
+2026-10-13 18:00:46,301 level=INFO logger=crosshair_research.repository msg=session_finished session_id=18 status=completed
+2026-10-13 18:00:46,330 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=experimental position=1 status=in_progress
+2026-10-13 18:00:50,474 level=INFO logger=crosshair_research.repository msg=session_created session_id=19 player_id=test type=flick condition=baseline
+2026-10-13 18:00:50,474 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=19 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 18:00:56,091 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=1
+2026-10-13 18:01:06,646 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=4
+2026-10-13 18:01:24,841 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=9
+2026-10-13 18:02:01,603 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=23
+2026-10-13 18:02:03,869 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=23
+2026-10-13 18:02:06,758 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=23
+2026-10-13 18:02:20,151 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=19 plan_index=28
+2026-10-13 18:02:25,192 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=experimental session_id=19
+2026-10-13 18:02:25,215 level=INFO logger=crosshair_research.repository msg=session_finished session_id=19 status=completed
+2026-10-13 18:02:25,247 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=experimental position=2 status=in_progress
+2026-10-13 18:02:30,753 level=INFO logger=crosshair_research.repository msg=session_created session_id=20 player_id=test type=tracking condition=baseline
+2026-10-13 18:02:30,754 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=20 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:03:18,407 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=experimental session_id=20
+2026-10-13 18:03:18,426 level=INFO logger=crosshair_research.repository msg=session_finished session_id=20 status=completed
+2026-10-13 18:03:18,471 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=experimental position=3 status=in_progress
+2026-10-13 18:03:22,962 level=INFO logger=crosshair_research.repository msg=session_created session_id=21 player_id=test type=switching condition=baseline
+2026-10-13 18:03:22,962 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=21 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:03:29,671 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=21 plan_index=1
+2026-10-13 18:04:03,105 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=experimental session_id=21
+2026-10-13 18:04:03,122 level=INFO logger=crosshair_research.repository msg=session_finished session_id=21 status=completed
+2026-10-13 18:04:03,149 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=3 stage=experimental position=3 status=completed
+2026-10-13 18:04:13,141 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 18:05:59,920 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:06:08,696 level=INFO logger=crosshair_research.repository msg=recommendation_created id=5 player_id=test candidates=3
+2026-10-13 18:06:08,696 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=5 player=test
+2026-10-13 18:06:38,318 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:06:41,426 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:06:43,622 level=INFO logger=crosshair_research.repository msg=recommendation_created id=6 player_id=test candidates=3
+2026-10-13 18:06:43,622 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=6 player=test
+2026-10-13 18:06:44,774 level=INFO logger=crosshair_research.repository msg=recommendation_created id=7 player_id=test candidates=3
+2026-10-13 18:06:44,774 level=INFO logger=crosshair_research.ui.recommendation msg=recommendation_stored id=7 player=test
+2026-10-13 18:06:53,118 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:06:58,212 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:07:05,246 level=INFO logger=crosshair_research.repository msg=condition_evaluation_started evaluation_id=1 player_id=test group=SC candidate=2
+2026-10-13 18:07:05,264 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 18:07:14,574 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:07:15,128 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:07:25,008 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 18:07:34,075 level=INFO logger=crosshair_research.repository msg=task_assessment_started assessment_id=4 player_id=test group=FTS
+2026-10-13 18:07:35,502 level=INFO logger=crosshair_research.repository msg=session_created session_id=22 player_id=test type=flick condition=standard
+2026-10-13 18:07:35,502 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=22 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 18:07:37,652 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=22 plan_index=0
+2026-10-13 18:07:42,037 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=22 plan_index=1
+2026-10-13 18:07:48,469 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=practice session_id=22
+2026-10-13 18:07:48,648 level=INFO logger=crosshair_research.repository msg=session_finished session_id=22 status=completed
+2026-10-13 18:07:48,764 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=familiarization position=2 status=in_progress
+2026-10-13 18:07:54,975 level=INFO logger=crosshair_research.repository msg=session_created session_id=23 player_id=test type=tracking condition=standard
+2026-10-13 18:07:54,975 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=23 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:08:03,512 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=practice session_id=23
+2026-10-13 18:08:03,597 level=INFO logger=crosshair_research.repository msg=session_finished session_id=23 status=completed
+2026-10-13 18:08:03,631 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=familiarization position=3 status=in_progress
+2026-10-13 18:08:06,586 level=INFO logger=crosshair_research.repository msg=session_created session_id=24 player_id=test type=switching condition=standard
+2026-10-13 18:08:06,587 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=24 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:08:10,704 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=practice session_id=24
+2026-10-13 18:08:10,731 level=INFO logger=crosshair_research.repository msg=session_finished session_id=24 status=completed
+2026-10-13 18:08:10,749 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=experimental position=1 status=in_progress
+2026-10-13 18:08:15,090 level=INFO logger=crosshair_research.repository msg=session_created session_id=25 player_id=test type=flick condition=standard
+2026-10-13 18:08:15,090 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=25 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 18:08:18,124 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=1
+2026-10-13 18:08:20,855 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=2
+2026-10-13 18:08:26,200 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=4
+2026-10-13 18:08:27,731 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=4
+2026-10-13 18:08:31,220 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=5
+2026-10-13 18:08:41,948 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=9
+2026-10-13 18:08:50,364 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=12
+2026-10-13 18:09:02,666 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=17
+2026-10-13 18:09:04,977 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=17
+2026-10-13 18:09:12,998 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=19
+2026-10-13 18:09:14,809 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=25 plan_index=19
+2026-10-13 18:09:39,284 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=experimental session_id=25
+2026-10-13 18:09:39,309 level=INFO logger=crosshair_research.repository msg=session_finished session_id=25 status=completed
+2026-10-13 18:09:39,332 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=experimental position=2 status=in_progress
+2026-10-13 18:09:42,856 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 18:09:43,157 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:09:46,925 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:09:52,912 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-13 18:09:54,443 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-13 18:10:27,800 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 18:10:28,252 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 18:10:28,970 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:10:30,468 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:10:33,119 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 18:10:34,202 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:10:34,733 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:11:02,671 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-13 18:11:03,370 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:11:11,714 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 18:11:21,116 level=INFO logger=crosshair_research.repository msg=session_created session_id=26 player_id=test type=tracking condition=standard
+2026-10-13 18:11:21,116 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=26 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:11:31,889 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=26 plan_index=1
+2026-10-13 18:11:34,679 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=26 plan_index=1
+2026-10-13 18:11:59,030 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=26 plan_index=4
+2026-10-13 18:12:15,295 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=experimental session_id=26
+2026-10-13 18:12:15,312 level=INFO logger=crosshair_research.repository msg=session_finished session_id=26 status=completed
+2026-10-13 18:12:15,337 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=experimental position=3 status=in_progress
+2026-10-13 18:12:19,270 level=INFO logger=crosshair_research.repository msg=session_created session_id=27 player_id=test type=switching condition=standard
+2026-10-13 18:12:19,271 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=27 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:12:53,992 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=experimental session_id=27
+2026-10-13 18:12:54,009 level=INFO logger=crosshair_research.repository msg=session_finished session_id=27 status=completed
+2026-10-13 18:12:54,035 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=4 stage=experimental position=3 status=completed
+2026-10-13 18:12:54,057 level=INFO logger=crosshair_research.repository msg=condition_evaluation_advanced evaluation_id=1 position=2 status=in_progress
+2026-10-13 18:13:01,087 level=INFO logger=crosshair_research.repository msg=task_assessment_started assessment_id=5 player_id=test group=FTS
+2026-10-13 18:13:02,092 level=INFO logger=crosshair_research.repository msg=session_created session_id=28 player_id=test type=flick condition=candidate
+2026-10-13 18:13:02,092 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=28 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 18:13:03,292 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=28 plan_index=0
+2026-10-13 18:13:04,592 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=28 plan_index=0
+2026-10-13 18:13:11,502 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=practice session_id=28
+2026-10-13 18:13:11,530 level=INFO logger=crosshair_research.repository msg=session_finished session_id=28 status=completed
+2026-10-13 18:13:11,558 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=familiarization position=2 status=in_progress
+2026-10-13 18:13:13,852 level=INFO logger=crosshair_research.repository msg=session_created session_id=29 player_id=test type=tracking condition=candidate
+2026-10-13 18:13:13,852 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=29 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:13:21,602 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=practice session_id=29
+2026-10-13 18:13:21,663 level=INFO logger=crosshair_research.repository msg=session_finished session_id=29 status=completed
+2026-10-13 18:13:21,680 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=familiarization position=3 status=in_progress
+2026-10-13 18:13:23,663 level=INFO logger=crosshair_research.repository msg=session_created session_id=30 player_id=test type=switching condition=candidate
+2026-10-13 18:13:23,663 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=30 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:13:27,202 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=practice session_id=30
+2026-10-13 18:13:27,224 level=INFO logger=crosshair_research.repository msg=session_finished session_id=30 status=completed
+2026-10-13 18:13:27,247 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=experimental position=1 status=in_progress
+2026-10-13 18:13:29,552 level=INFO logger=crosshair_research.repository msg=session_created session_id=31 player_id=test type=flick condition=candidate
+2026-10-13 18:13:29,553 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=flick session_id=31 protocol=pilot-placeholder+29ad16479cd9 practice=3 trials=30 arena=2560x1440
+2026-10-13 18:13:34,839 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=2
+2026-10-13 18:13:41,471 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=4
+2026-10-13 18:13:42,872 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=4
+2026-10-13 18:13:50,685 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=7
+2026-10-13 18:13:51,414 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=7
+2026-10-13 18:14:05,471 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=13
+2026-10-13 18:14:24,798 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=20
+2026-10-13 18:14:41,928 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=31 plan_index=27
+2026-10-13 18:14:48,904 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=flick phase=experimental session_id=31
+2026-10-13 18:14:48,932 level=INFO logger=crosshair_research.repository msg=session_finished session_id=31 status=completed
+2026-10-13 18:14:49,026 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=experimental position=2 status=in_progress
+2026-10-13 18:14:52,103 level=INFO logger=crosshair_research.repository msg=session_created session_id=32 player_id=test type=tracking condition=candidate
+2026-10-13 18:14:52,104 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=tracking session_id=32 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=6 arena=2560x1440
+2026-10-13 18:14:53,482 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=32 plan_index=0
+2026-10-13 18:15:17,749 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=32 plan_index=3
+2026-10-13 18:15:40,938 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=tracking phase=experimental session_id=32
+2026-10-13 18:15:40,964 level=INFO logger=crosshair_research.repository msg=session_finished session_id=32 status=completed
+2026-10-13 18:15:40,983 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=experimental position=3 status=in_progress
+2026-10-13 18:15:44,277 level=INFO logger=crosshair_research.repository msg=session_created session_id=33 player_id=test type=switching condition=candidate
+2026-10-13 18:15:44,277 level=INFO logger=crosshair_research.ui.experiment msg=experiment_started type=switching session_id=33 protocol=pilot-placeholder+29ad16479cd9 practice=1 trials=10 arena=2560x1440
+2026-10-13 18:16:09,734 level=INFO logger=crosshair_research.ui.experiment msg=trial_invalid_pre_movement session_id=33 plan_index=7
+2026-10-13 18:16:20,561 level=INFO logger=crosshair_research.ui.experiment msg=task_block_completed type=switching phase=experimental session_id=33
+2026-10-13 18:16:20,631 level=INFO logger=crosshair_research.repository msg=session_finished session_id=33 status=completed
+2026-10-13 18:16:20,698 level=INFO logger=crosshair_research.repository msg=task_assessment_advanced assessment_id=5 stage=experimental position=3 status=completed
+2026-10-13 18:16:20,709 level=INFO logger=crosshair_research.repository msg=condition_evaluation_advanced evaluation_id=1 position=2 status=completed
+2026-10-13 18:16:21,856 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=evaluation:1
+2026-10-13 18:16:37,131 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=33
+2026-10-13 18:16:44,988 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:16:46,586 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:16:48,780 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-13 18:16:50,822 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:16:51,245 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 18:17:19,772 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 18:17:32,663 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-13 18:17:34,774 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-13 18:17:36,795 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-13 18:17:39,582 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-13 18:17:40,060 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-13 18:37:30,568 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-13 19:00:56,232 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-13 19:01:04,594 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 19:01:06,085 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-13 19:01:06,324 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-13 19:01:07,727 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-

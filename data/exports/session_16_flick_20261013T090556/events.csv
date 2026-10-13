@@ -1,0 +1,18 @@
+participant_id,session_id,task_order_group,task_order,task_position,assessment_stage,task,condition,condition_position,condition_order_group,condition_order,evaluation_id,initial_baseline_session_id,recommendation_run_id,selected_candidate_id,protocol_version,seed,seed_group,crosshair_id,trial_id,trial_number,t_ms,event_type,x,y,is_hit
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,196,1,-794.8093000013614,start_click,1278.0,725.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,196,1,-516.0198000012315,stabilization_reset,1281.0,725.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,196,1,-400.727200001711,stabilization_reset,1283.0,722.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,196,1,-100.2571999997599,stable,1283.0,721.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,196,1,0.0,pre_target_movement,1283.0,718.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,197,2,-1029.3937000024016,start_click,1280.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,197,2,-728.9649000013014,stable,1280.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,197,2,0.0,target_onset,1280.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,197,2,756.2336999981198,click,1618.0,425.0,True
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,198,3,-750.8563000010327,start_click,1279.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,198,3,-450.7085000004736,stable,1279.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,198,3,0.0,target_onset,1281.0,719.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,198,3,688.2166999967012,click,1507.0,510.0,True
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,199,4,-794.179599997733,start_click,1283.0,722.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,199,4,-493.88659999749507,stable,1282.0,723.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,199,4,0.0,target_onset,1282.0,723.0,
+test,16,FTS,"[""flick"", ""tracking"", ""switching""]",1,practice,flick,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261003,practice,13,199,4,544.149400000606,click,1424.0,722.0,True

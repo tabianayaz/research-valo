@@ -1,0 +1,924 @@
+{
+  "exported_at": "2026-10-13T09:05:56.012276+00:00",
+  "analysis_version": "metrics-2",
+  "session": {
+    "player_id": "test",
+    "experiment_type": "flick",
+    "condition": "baseline",
+    "session_number": 1,
+    "crosshair_id": 13,
+    "environment_id": 16,
+    "random_seed": 30261003,
+    "task_config": {
+      "arena_px": [
+        2560,
+        1440
+      ],
+      "assessment_stage": "practice",
+      "experimental_seed": 20261003,
+      "flick": {
+        "confirmed": false,
+        "foreperiod_ms": [
+          400,
+          900
+        ],
+        "movement_onset_threshold_px": 3.0,
+        "random_seed": 20261003,
+        "stabilization_duration_ms": 300,
+        "stabilization_movement_threshold_px": 3.0,
+        "stabilization_radius_px": 12.0,
+        "start_marker_color": "#BFC5CC",
+        "start_marker_diameter_px": 24,
+        "target_color": "#E8524A",
+        "target_diameter_px": 40,
+        "target_distances_px": [
+          150,
+          300,
+          450
+        ],
+        "timeout_ms": 3000,
+        "trial_count": 30
+      },
+      "plan": [
+        {
+          "angle_deg": 155.0,
+          "foreperiod_ms": 574,
+          "index": 0,
+          "planned_distance_px": 450,
+          "x": 872.161,
+          "y": 529.822
+        },
+        {
+          "angle_deg": 330.0,
+          "foreperiod_ms": 570,
+          "index": 1,
+          "planned_distance_px": 450,
+          "x": 1669.711,
+          "y": 945.0
+        },
+        {
+          "angle_deg": 18.0,
+          "foreperiod_ms": 529,
+          "index": 2,
+          "planned_distance_px": 300,
+          "x": 1565.317,
+          "y": 627.295
+        },
+        {
+          "angle_deg": 94.0,
+          "foreperiod_ms": 660,
+          "index": 3,
+          "planned_distance_px": 150,
+          "x": 1269.537,
+          "y": 570.365
+        },
+        {
+          "angle_deg": 353.0,
+          "foreperiod_ms": 782,
+          "index": 4,
+          "planned_distance_px": 300,
+          "x": 1577.764,
+          "y": 756.561
+        },
+        {
+          "angle_deg": 19.0,
+          "foreperiod_ms": 563,
+          "index": 5,
+          "planned_distance_px": 450,
+          "x": 1705.483,
+          "y": 573.494
+        },
+        {
+          "angle_deg": 231.0,
+          "foreperiod_ms": 584,
+          "index": 6,
+          "planned_distance_px": 450,
+          "x": 996.806,
+          "y": 1069.716
+        },
+        {
+          "angle_deg": 16.0,
+          "foreperiod_ms": 842,
+          "index": 7,
+          "planned_distance_px": 150,
+          "x": 1424.189,
+          "y": 678.654
+        },
+        {
+          "angle_deg": 97.0,
+          "foreperiod_ms": 443,
+          "index": 8,
+          "planned_distance_px": 450,
+          "x": 1225.159,
+          "y": 273.354
+        },
+        {
+          "angle_deg": 348.0,
+          "foreperiod_ms": 822,
+          "index": 9,
+          "planned_distance_px": 450,
+          "x": 1720.166,
+          "y": 813.56
+        },
+        {
+          "angle_deg": 165.0,
+          "foreperiod_ms": 702,
+          "index": 10,
+          "planned_distance_px": 450,
+          "x": 845.333,
+          "y": 603.531
+        },
+        {
+          "angle_deg": 358.0,
+          "foreperiod_ms": 788,
+          "index": 11,
+          "planned_distance_px": 150,
+          "x": 1429.909,
+          "y": 725.235
+        },
+        {
+          "angle_deg": 148.0,
+          "foreperiod_ms": 554,
+          "index": 12,
+          "planned_distance_px": 150,
+          "x": 1152.793,
+          "y": 640.512
+        },
+        {
+          "angle_deg": 234.0,
+          "foreperiod_ms": 510,
+          "index": 13,
+          "planned_distance_px": 300,
+          "x": 1103.664,
+          "y": 962.705
+        },
+        {
+          "angle_deg": 64.0,
+          "foreperiod_ms": 665,
+          "index": 14,
+          "planned_distance_px": 450,
+          "x": 1477.267,
+          "y": 315.543
+        },
+        {
+          "angle_deg": 160.0,
+          "foreperiod_ms": 607,
+          "index": 15,
+          "planned_distance_px": 150,
+          "x": 1139.046,
+          "y": 668.697
+        },
+        {
+          "angle_deg": 338.0,
+          "foreperiod_ms": 475,
+          "index": 16,
+          "planned_distance_px": 300,
+          "x": 1558.155,
+          "y": 832.382
+        },
+        {
+          "angle_deg": 157.0,
+          "foreperiod_ms": 664,
+          "index": 17,
+          "planned_distance_px": 450,
+          "x": 865.773,
+          "y": 544.171
+        },
+        {
+          "angle_deg": 101.0,
+          "foreperiod_ms": 559,
+          "index": 18,
+          "planned_distance_px": 300,
+          "x": 1222.757,
+          "y": 425.512
+        },
+        {
+          "angle_deg": 127.0,
+          "foreperiod_ms": 493,
+          "index": 19,
+          "planned_distance_px": 150,
+          "x": 1189.728,
+          "y": 600.205
+        },
+        {
+          "angle_deg": 61.0,
+          "foreperiod_ms": 665,
+          "index": 20,
+          "planned_distance_px": 300,
+          "x": 1425.443,
+          "y": 457.614
+        },
+        {
+          "angle_deg": 278.0,
+          "foreperiod_ms": 419,
+          "index": 21,
+          "planned_distance_px": 150,
+          "x": 1300.876,
+          "y": 868.54
+        },
+        {
+          "angle_deg": 280.0,
+          "foreperiod_ms": 440,
+          "index": 22,
+          "planned_distance_px": 300,
+          "x": 1332.094,
+          "y": 1015.442
+        },
+        {
+          "angle_deg": 262.0,
+          "foreperiod_ms": 783,
+          "index": 23,
+          "planned_distance_px": 150,
+          "x": 1259.124,
+          "y": 868.54
+        },
+        {
+          "angle_deg": 90.0,
+          "foreperiod_ms": 617,
+          "index": 24,
+          "planned_distance_px": 150,
+          "x": 1280.0,
+          "y": 570.0
+        },
+        {
+          "angle_deg": 4.0,
+          "foreperiod_ms": 557,
+          "index": 25,
+          "planned_distance_px": 300,
+          "x": 1579.269,
+          "y": 699.073
+        },
+        {
+          "angle_deg": 15.0,
+          "foreperiod_ms": 872,
+          "index": 26,
+          "planned_distance_px": 300,
+          "x": 1569.778,
+          "y": 642.354
+        },
+        {
+          "angle_deg": 354.0,
+          "foreperiod_ms": 515,
+          "index": 27,
+          "planned_distance_px": 450,
+          "x": 1727.535,
+          "y": 767.038
+        },
+        {
+          "angle_deg": 122.0,
+          "foreperiod_ms": 865,
+          "index": 28,
+          "planned_distance_px": 300,
+          "x": 1121.024,
+          "y": 465.586
+        },
+        {
+          "angle_deg": 281.0,
+          "foreperiod_ms": 771,
+          "index": 29,
+          "planned_distance_px": 150,
+          "x": 1308.621,
+          "y": 867.244
+        }
+      ],
+      "practice_plan": [
+        {
+          "angle_deg": 41.0,
+          "foreperiod_ms": 727,
+          "index": 0,
+          "planned_distance_px": 450,
+          "x": 1619.619,
+          "y": 424.773
+        },
+        {
+          "angle_deg": 42.0,
+          "foreperiod_ms": 448,
+          "index": 1,
+          "planned_distance_px": 300,
+          "x": 1502.943,
+          "y": 519.261
+        },
+        {
+          "angle_deg": 2.0,
+          "foreperiod_ms": 491,
+          "index": 2,
+          "planned_distance_px": 150,
+          "x": 1429.909,
+          "y": 714.765
+        }
+      ],
+      "pre_block_seed": 30261003,
+      "pre_block_stage": "practice",
+      "research_parameters": {
+        "baseline_confirmed": false,
+        "baseline_crosshair": {
+          "color": "#FFFFFF",
+          "gap": 3,
+          "name": "Standard crosshair (baseline)",
+          "opacity": 0.8,
+          "outline_enabled": true,
+          "outline_thickness": 1,
+          "size": 6,
+          "thickness": 2
+        },
+        "experiment_background_color": "#3C4146",
+        "flick_task": {
+          "confirmed": false,
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "movement_onset_threshold_px": 3,
+          "random_seed": 20261003,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "target_color": "#E8524A",
+          "target_diameter_px": 40,
+          "target_distances_px": [
+            150,
+            300,
+            450
+          ],
+          "timeout_ms": 3000,
+          "trial_count": 30
+        },
+        "parameter_ranges": {
+          "gap": [
+            0.0,
+            20.0
+          ],
+          "opacity": [
+            0.05,
+            1.0
+          ],
+          "outline_thickness": [
+            1.0,
+            6.0
+          ],
+          "size": [
+            1.0,
+            20.0
+          ],
+          "thickness": [
+            1.0,
+            10.0
+          ]
+        },
+        "protocol": {
+          "assignment_method": "participant_sequence_modulo_6",
+          "available_condition_orders": [
+            "CS",
+            "SC"
+          ],
+          "available_task_orders": [
+            "FTS",
+            "FST",
+            "TFS",
+            "TSF",
+            "SFT",
+            "STF"
+          ],
+          "condition_assignment_method": "participant_sequence_alternating_crossed_6x2",
+          "condition_familiarization_enabled": true,
+          "condition_familiarization_random_seed": {
+            "flick": 60261003,
+            "switching": 60261005,
+            "tracking": 60261004
+          },
+          "condition_familiarization_trial_count": {
+            "flick": 3,
+            "switching": 1,
+            "tracking": 1
+          },
+          "condition_order_method": "counterbalanced",
+          "condition_random_seed": {
+            "candidate": {
+              "flick": 50261003,
+              "switching": 50261005,
+              "tracking": 50261004
+            },
+            "standard": {
+              "flick": 40261003,
+              "switching": 40261005,
+              "tracking": 40261004
+            }
+          },
+          "condition_rest_seconds": 0,
+          "confirmed": false,
+          "debug_fixed_task_order": [
+            "flick",
+            "tracking",
+            "switching"
+          ],
+          "debug_task_selection_enabled": false,
+          "label": "pilot-placeholder",
+          "practice_enabled": true,
+          "practice_fixed_task_order": [
+            "flick",
+            "tracking",
+            "switching"
+          ],
+          "practice_random_seed": {
+            "flick": 30261003,
+            "switching": 30261005,
+            "tracking": 30261004
+          },
+          "practice_task_order_method": "match_assigned",
+          "practice_trial_count": {
+            "flick": 3,
+            "switching": 1,
+            "tracking": 1
+          },
+          "task_order_method": "counterbalanced"
+        },
+        "px_per_unit": 1.0,
+        "recommendation": {
+          "base_weights": {
+            "center_precision": 1.0,
+            "low_occlusion": 1.0,
+            "source_fidelity": 0.5,
+            "visibility": 1.0
+          },
+          "confirmed": false,
+          "fidelity_scores": {
+            "approximate": 0.6,
+            "exact": 1.0
+          },
+          "method": "rule_based_candidate_scoring",
+          "method_version": "rules-1",
+          "normalisation": {
+            "center_offset_full_px": 12,
+            "contrast_ratio_full": 7.0,
+            "extent_full_px": 30
+          },
+          "rules": [
+            {
+              "adjust": {
+                "center_precision": 1.0
+              },
+              "id": "flick_click_error",
+              "metric": "flick.error_ratio_mean",
+              "op": ">",
+              "rationale": "Placeholder hypothesis: Flick Aim clicks land far from the target centre, so favour crosshairs with a small gap and thin lines (a more precise centre reference).",
+              "threshold": 0.5
+            },
+            {
+              "adjust": {
+                "visibility": 1.0
+              },
+              "id": "tracking_time_on_target",
+              "metric": "tracking.on_target_ratio_mean",
+              "op": "<",
+              "rationale": "Placeholder hypothesis: the crosshair is often off the moving target, so favour crosshairs that stand out more against the background (contrast, outline, opacity).",
+              "threshold": 0.6
+            },
+            {
+              "adjust": {
+                "low_occlusion": 1.0
+              },
+              "id": "switching_hit_rate",
+              "metric": "switching.hit_rate",
+              "op": "<",
+              "rationale": "Placeholder hypothesis: targets are often missed while switching, so favour crosshairs that cover less of the target.",
+              "threshold": 0.7
+            },
+            {
+              "adjust": {
+                "visibility": 0.5
+              },
+              "id": "flick_timeouts",
+              "metric": "flick.timeout_rate",
+              "op": ">",
+              "rationale": "Placeholder hypothesis: frequent Flick Aim timeouts, so give extra weight to crosshair visibility.",
+              "threshold": 0.1
+            }
+          ],
+          "top_n": 3
+        },
+        "switching_task": {
+          "confirmed": false,
+          "first_distances_px": [
+            150,
+            300
+          ],
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "inactive_target_color": "#6F7780",
+          "min_separation_px": 80,
+          "movement_onset_threshold_px": 3,
+          "random_seed": 20261005,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "switch_distances_px": [
+            200,
+            350
+          ],
+          "target_color": "#E8524A",
+          "target_diameter_px": 40,
+          "targets_per_trial": 3,
+          "timeout_ms": 3000,
+          "trial_count": 10
+        },
+        "tracking_task": {
+          "confirmed": false,
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "movement_onset_threshold_px": 3,
+          "path_amplitude_px": [
+            360,
+            220
+          ],
+          "path_component_weights": [
+            0.65,
+            0.35
+          ],
+          "path_frequencies_hz": [
+            [
+              0.11,
+              0.27
+            ],
+            [
+              0.13,
+              0.31
+            ]
+          ],
+          "random_seed": 20261004,
+          "sample_interval_ms": 4,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "target_color": "#E8524A",
+          "target_diameter_px": 48,
+          "trial_count": 6,
+          "trial_duration_ms": 6000
+        }
+      },
+      "timing_definition": {
+        "clock": "time.perf_counter() in the Qt event handler, milliseconds relative to target onset",
+        "completion_time": "t0 -> ending click; null for timeout",
+        "coordinates": "arena device pixels, origin top-left; crosshair = rendered centre",
+        "foreperiod_validity": "leaving the region or moving >= stabilization_movement_threshold_px from the stable position during the foreperiod invalidates the trial (invalid_pre_movement); the planned trial is repeated",
+        "hit": "distance(crosshair centre, target centre) <= target radius at the click",
+        "movement_onset": "first sample after t0 with distance >= movement_onset_threshold_px from the stable pre-target position",
+        "movement_time": "movement onset -> ending click",
+        "reaction_time": "t0 -> movement onset",
+        "stabilization": "after the start click the cursor must stay within stabilization_radius_px of the centre and move < stabilization_movement_threshold_px for stabilization_duration_ms; violations restart the period",
+        "t0": "perf_counter() immediately after the first paint that contains the target",
+        "timing_fallback": "no paint within 50 ms: t0 from the fallback timer, trial status timing_fallback, excluded from reaction/completion time",
+        "timing_version": "timing-2",
+        "trial_end": "first left click at t >= 0, or timeout_ms after t0",
+        "version": "flick-timing-2"
+      }
+    },
+    "parent_session_id": null,
+    "recommendation_id": null,
+    "app_version": "0.1.0",
+    "notes": "Placeholder task parameters (flick_task.confirmed = false).",
+    "status": "completed",
+    "session_id": 16,
+    "started_at": "2026-10-13T08:59:54.079033+00:00",
+    "ended_at": "2026-10-13T09:00:06.260392+00:00",
+    "protocol_version": "pilot-placeholder+29ad16479cd9",
+    "protocol_snapshot": {
+      "assignment_method": "participant_sequence_modulo_6",
+      "available_task_orders": [
+        "FTS",
+        "FST",
+        "TFS",
+        "TSF",
+        "SFT",
+        "STF"
+      ],
+      "baseline_crosshair": {
+        "color": "#FFFFFF",
+        "confirmed": false,
+        "gap": 3,
+        "name": "Standard crosshair (baseline)",
+        "opacity": 0.8,
+        "outline_enabled": true,
+        "outline_thickness": 1,
+        "size": 6,
+        "thickness": 2
+      },
+      "condition_design": {
+        "available_condition_orders": [
+          "CS",
+          "SC"
+        ],
+        "condition_assignment_method": "participant_sequence_alternating_crossed_6x2",
+        "condition_order_method": "counterbalanced",
+        "conditions": [
+          "baseline",
+          "standard",
+          "candidate"
+        ],
+        "familiarization": {
+          "enabled": true,
+          "random_seed": {
+            "flick": 60261003,
+            "switching": 60261005,
+            "tracking": 60261004
+          },
+          "trial_count": {
+            "flick": 3,
+            "switching": 1,
+            "tracking": 1
+          }
+        },
+        "random_seed": {
+          "candidate": {
+            "flick": 50261003,
+            "switching": 50261005,
+            "tracking": 50261004
+          },
+          "standard": {
+            "flick": 40261003,
+            "switching": 40261005,
+            "tracking": 40261004
+          }
+        },
+        "rest_seconds": 0.0
+      },
+      "confirmed": false,
+      "debug": {
+        "experimental": false,
+        "fixed_task_order": [
+          "flick",
+          "tracking",
+          "switching"
+        ],
+        "task_selection_enabled": false
+      },
+      "environment": {
+        "experiment_background_color": "#3C4146",
+        "px_per_unit": 1.0
+      },
+      "label": "pilot-placeholder",
+      "practice": {
+        "enabled": true,
+        "fixed_task_order": [
+          "flick",
+          "tracking",
+          "switching"
+        ],
+        "random_seed": {
+          "flick": 30261003,
+          "switching": 30261005,
+          "tracking": 30261004
+        },
+        "task_order_method": "match_assigned",
+        "trial_count": {
+          "flick": 3,
+          "switching": 1,
+          "tracking": 1
+        }
+      },
+      "protocol_version": "pilot-placeholder+29ad16479cd9",
+      "schema": "protocol-3",
+      "task_order_method": "counterbalanced",
+      "tasks": {
+        "flick": {
+          "confirmed": false,
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "movement_onset_threshold_px": 3,
+          "random_seed": 20261003,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "target_color": "#E8524A",
+          "target_diameter_px": 40,
+          "target_distances_px": [
+            150,
+            300,
+            450
+          ],
+          "timeout_ms": 3000,
+          "trial_count": 30
+        },
+        "switching": {
+          "confirmed": false,
+          "first_distances_px": [
+            150,
+            300
+          ],
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "inactive_target_color": "#6F7780",
+          "min_separation_px": 80,
+          "movement_onset_threshold_px": 3,
+          "random_seed": 20261005,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "switch_distances_px": [
+            200,
+            350
+          ],
+          "target_color": "#E8524A",
+          "target_diameter_px": 40,
+          "targets_per_trial": 3,
+          "timeout_ms": 3000,
+          "trial_count": 10
+        },
+        "tracking": {
+          "confirmed": false,
+          "foreperiod_ms": [
+            400,
+            900
+          ],
+          "movement_onset_threshold_px": 3,
+          "path_amplitude_px": [
+            360,
+            220
+          ],
+          "path_component_weights": [
+            0.65,
+            0.35
+          ],
+          "path_frequencies_hz": [
+            [
+              0.11,
+              0.27
+            ],
+            [
+              0.13,
+              0.31
+            ]
+          ],
+          "random_seed": 20261004,
+          "sample_interval_ms": 4,
+          "stabilization_duration_ms": 300,
+          "stabilization_movement_threshold_px": 3,
+          "stabilization_radius_px": 12,
+          "start_marker_color": "#BFC5CC",
+          "start_marker_diameter_px": 24,
+          "target_color": "#E8524A",
+          "target_diameter_px": 48,
+          "trial_count": 6,
+          "trial_duration_ms": 6000
+        }
+      },
+      "timing_version": "timing-2"
+    },
+    "crosshair_snapshot": {
+      "color": "#FFFFFF",
+      "created_at": "2026-10-03T09:29:17.150236+00:00",
+      "crosshair_id": 13,
+      "fidelity": null,
+      "gap": 3.0,
+      "name": "Standard crosshair (baseline)",
+      "opacity": 0.8,
+      "outline_enabled": true,
+      "outline_thickness": 1.0,
+      "px_per_unit": 1.0,
+      "role": "baseline",
+      "size": 6.0,
+      "source_id": null,
+      "thickness": 2.0
+    },
+    "assessment_id": 3,
+    "assessment_stage": "practice",
+    "task_order_mode": "counterbalanced",
+    "task_order_group": "FTS",
+    "task_order": [
+      "flick",
+      "tracking",
+      "switching"
+    ],
+    "task_position": 1,
+    "evaluation_id": null,
+    "condition_order_group": null,
+    "condition_order": null,
+    "condition_position": null,
+    "initial_baseline_session_id": null,
+    "selected_candidate_id": null,
+    "seed_group": "practice"
+  },
+  "task_order_metadata": {
+    "participant_id": "test",
+    "session_id": 16,
+    "task_order_group": "FTS",
+    "task_order": "[\"flick\", \"tracking\", \"switching\"]",
+    "task_position": 1,
+    "assessment_stage": "practice"
+  },
+  "condition_metadata": {
+    "task": "flick",
+    "condition": "baseline",
+    "condition_position": null,
+    "condition_order_group": null,
+    "condition_order": "",
+    "evaluation_id": null,
+    "initial_baseline_session_id": null,
+    "recommendation_run_id": null,
+    "selected_candidate_id": null,
+    "protocol_version": "pilot-placeholder+29ad16479cd9",
+    "seed": 30261003,
+    "seed_group": "practice",
+    "crosshair_id": 13
+  },
+  "crosshair": {
+    "name": "Standard crosshair (baseline)",
+    "role": "baseline",
+    "color": "#FFFFFF",
+    "size": 6.0,
+    "thickness": 2.0,
+    "gap": 3.0,
+    "outline_enabled": true,
+    "outline_thickness": 1.0,
+    "opacity": 0.8,
+    "source_id": null,
+    "fidelity": null,
+    "crosshair_id": 13,
+    "created_at": "2026-10-03T09:29:17.150236+00:00"
+  },
+  "metrics": {
+    "trials": {
+      "value": 0.0,
+      "unit": "count",
+      "label": "Trials"
+    },
+    "reaction_time_median_ms": {
+      "value": null,
+      "unit": "ms",
+      "label": "Reaction time (median)"
+    },
+    "moving_at_onset_rate": {
+      "value": null,
+      "unit": "ratio",
+      "label": "Moving at target onset"
+    },
+    "reaction_time_valid_trials": {
+      "value": 0.0,
+      "unit": "count",
+      "label": "Trials valid for reaction time"
+    },
+    "invalid_pre_movement_count": {
+      "value": 0.0,
+      "unit": "count",
+      "label": "Invalid trials (moved before target)"
+    },
+    "practice_trials": {
+      "value": 4.0,
+      "unit": "count",
+      "label": "Practice trials (not analysed)"
+    },
+    "timing_fallback_count": {
+      "value": 0.0,
+      "unit": "count",
+      "label": "Timing-fallback trials"
+    },
+    "hit_rate": {
+      "value": null,
+      "unit": "ratio",
+      "label": "Hit rate"
+    },
+    "timeout_rate": {
+      "value": null,
+      "unit": "ratio",
+      "label": "Timeout rate"
+    },
+    "error_distance_mean_px": {
+      "value": null,
+      "unit": "px",
+      "label": "Click error (mean)"
+    },
+    "error_ratio_mean": {
+      "value": null,
+      "unit": "ratio",
+      "label": "Click error / target radius (mean)"
+    },
+    "completion_time_median_ms": {
+      "value": null,
+      "unit": "ms",
+      "label": "Completion time (median, hits)"
+    },
+    "completion_time_mean_ms": {
+      "value": null,
+      "unit": "ms",
+      "label": "Completion time (mean, hits)"
+    }
+  },
+  "recomputation_mismatches": []
+}

@@ -1,0 +1,6 @@
+participant_id,session_id,task_order_group,task_order,task_position,assessment_stage,task,condition,condition_position,condition_order_group,condition_order,evaluation_id,initial_baseline_session_id,recommendation_run_id,selected_candidate_id,protocol_version,seed,seed_group,crosshair_id,trial_id,trial_number,t_ms,event_type,x,y,is_hit
+test,17,FTS,"[""flick"", ""tracking"", ""switching""]",2,practice,tracking,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261004,practice,13,200,1,-1027.9859000002034,start_click,1280.0,720.0,
+test,17,FTS,"[""flick"", ""tracking"", ""switching""]",2,practice,tracking,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261004,practice,13,200,1,-727.4073000007775,stable,1280.0,720.0,
+test,17,FTS,"[""flick"", ""tracking"", ""switching""]",2,practice,tracking,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261004,practice,13,200,1,0.0,target_onset,1280.0,720.0,
+test,17,FTS,"[""flick"", ""tracking"", ""switching""]",2,practice,tracking,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261004,practice,13,200,1,1043.551099999604,click,1151.0,644.0,True
+test,17,FTS,"[""flick"", ""tracking"", ""switching""]",2,practice,tracking,baseline,,,,,,,,pilot-placeholder+29ad16479cd9,30261004,practice,13,200,1,6002.545299998019,trial_end,1357.0,706.0,
