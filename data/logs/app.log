@@ -863,3 +863,37 @@ TypeError: tr() got multiple values for argument 'text'
 2026-10-13 19:01:07,727 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
 2026-10-13 19:01:49,346 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
 2026-10-13 19:01:49,347 level=INFO logger=crosshair_research msg=app_exit
+2026-10-24 13:48:50,963 level=INFO logger=crosshair_research msg=app_start version=0.1.0 data_dir=E:\project\research\data
+2026-10-24 13:48:51,156 level=INFO logger=crosshair_research.database msg=db_opened path=E:\project\research\data\app.db schema_version=6
+2026-10-24 13:48:52,221 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=home section=-
+2026-10-24 13:50:36,682 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-24 13:51:42,064 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=crosshair section=-
+2026-10-24 13:51:42,408 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-24 13:51:42,940 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 13:51:44,551 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 13:51:44,633 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 13:51:44,781 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 13:51:45,375 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 13:51:45,821 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 13:51:50,277 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-24 13:51:59,728 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=ja
+2026-10-24 13:52:04,655 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 13:53:37,412 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=settings section=-
+2026-10-24 13:53:38,035 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=history section=-
+2026-10-24 13:53:39,095 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-24 13:53:39,675 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-24 13:53:40,110 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 13:53:40,412 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 13:53:40,930 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=setup section=-
+2026-10-24 13:54:25,195 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 14:58:47,868 level=INFO logger=crosshair_research.ui.main_window msg=language_changed language=en
+2026-10-24 14:58:50,502 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 14:58:56,618 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 14:59:01,728 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 14:59:19,856 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=comparison section=-
+2026-10-24 14:59:21,111 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=recommendation section=-
+2026-10-24 14:59:21,645 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 14:59:21,928 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=assessment section=-
+2026-10-24 14:59:31,007 level=INFO logger=crosshair_research.ui.main_window msg=navigate page=results section=-
+2026-10-24 15:43:29,694 level=INFO logger=crosshair_research.database msg=db_closed path=E:\project\research\data\app.db
+2026-10-24 15:43:29,694 level=INFO logger=crosshair_research msg=app_exit
